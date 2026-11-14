@@ -1,0 +1,30 @@
+# Model service alone (plan 3.7). From this directory:
+#   docker compose up --build -d
+#   curl -s localhost:8001/health
+# The core service reaches it at http://model:8001 inside the team's compose network; when the backend's
+# root compose.yaml is used instead, point its model service at this Dockerfile or keep its shared image.
+name: aura-bio-model
+
+services:
+  model:
+    build:
+      context: ../..
+      dockerfile: deploy/model/Dockerfile
+    image: aura-bio/model:local
+    ports:
+      - "8001:8001"
+    environment:
+      AURA_ARTIFACTS: /app/artifacts
+    # NFR-3: a killed service is back within 10 s. Nothing to persist; state lives in the core's SQLite.
+    restart: unless-stopped
+    # Defence in depth: the service only reads its baked artifacts and writes nothing.
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    # A retrained model can be swapped in without rebuilding the image (same paths the service expects):
+    # volumes:
+    #   - ./../../artifacts:/app/artifacts:ro

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <filter id="glow-neuro" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <radialGradient id="brainGrad" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.35"/>
+      <stop offset="70%" stop-color="#0284C7" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0369A1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="400" height="400" fill="none"/>
+  
+  <!-- Caliper Rings & Angular HUD Grid -->
+  <circle cx="200" cy="200" r="160" stroke="#38BDF8" stroke-width="1" stroke-dasharray="4 8" opacity="0.3"/>
+  <circle cx="200" cy="200" r="130" stroke="#38BDF8" stroke-width="0.75" opacity="0.2"/>
+  <circle cx="200" cy="200" r="185" stroke="#1E293B" stroke-width="1"/>
+
+  <!-- Cranium Silhouette Outline -->
+  <path d="M 120 200 C 120 90, 280 90, 280 200 C 280 250, 255 285, 230 300 L 230 350 L 170 350 L 170 300 C 145 285, 120 250, 120 200 Z" 
+        fill="url(#brainGrad)" stroke="#38BDF8" stroke-width="2" stroke-opacity="0.8"/>
+
+  <!-- Cerebral Cortex Lobes & Sulci -->
+  <g fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round" filter="url(#glow-neuro)">
+    <!-- Frontal Lobe Sulci -->
+    <path d="M 160 140 Q 185 160 210 135 T 250 145"/>
+    <path d="M 140 170 Q 175 185 200 165 T 260 175"/>
+    <path d="M 135 205 Q 165 215 195 195 T 265 205"/>
+    <!-- Parietal & Occipital Sulci -->
+    <path d="M 145 235 Q 180 250 210 230 T 255 240"/>
+    <path d="M 165 265 Q 200 275 235 260"/>
+    <!-- Central Sulcus Divider -->
+    <path d="M 200 110 L 200 290" stroke-dasharray="3 4" stroke-width="1.5" opacity="0.6"/>
+  </g>
+
+  <!-- Frontal Executive Nodes & Synaptic Lattice -->
+  <g fill="#38BDF8" filter="url(#glow-neuro)">
+    <circle cx="170" cy="155" r="4.5"/>
+    <circle cx="230" cy="155" r="4.5"/>
+    <circle cx="200" cy="180" r="5"/>
+    <circle cx="165" cy="210" r="4"/>
+    <circle cx="235" cy="210" r="4"/>
+    <circle cx="185" cy="245" r="3.5"/>
+    <circle cx="215" cy="245" r="3.5"/>
+  </g>
+
+  <!-- Neural Firing Pathways -->
+  <g stroke="#38BDF8" stroke-width="1" opacity="0.6">
+    <line x1="170" y1="155" x2="200" y2="180"/>
+    <line x1="230" y1="155" x2="200" y2="180"/>
+    <line x1="200" y1="180" x2="165" y2="210"/>
+    <line x1="200" y1="180" x2="235" y2="210"/>
+    <line x1="165" y1="210" x2="185" y2="245"/>
+    <line x1="235" y1="210" x2="215" y2="245"/>
+  </g>
+
+  <!-- Brainstem / Cervical Transition -->
+  <line x1="190" y1="300" x2="190" y2="350" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4 4" opacity="0.8"/>
+  <line x1="210" y1="300" x2="210" y2="350" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4 4" opacity="0.8"/>
+</svg>

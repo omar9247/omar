@@ -1,0 +1,5 @@
+# Preserve genuine simulator captures, including Serial's CRLF endings.
+docs/verification/wokwi-defaults-serial.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/verification/wokwi-controls-serial.txt -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# The upstream LGPL notice is verbatim, including its original whitespace.
+web/static/lunar-arcade-hub/runtime/licenses/pygame-ce-LGPL-2.1.txt -text whitespace=-blank-at-eol,-blank-at-eof

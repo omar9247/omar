@@ -1,0 +1,10 @@
+{
+  "extraKnownMarketplaces": {
+    "impeccable": { "source": { "source": "github", "repo": "pbakaus/impeccable" } },
+    "intent": { "source": { "source": "github", "repo": "ghaida/intent" } }
+  },
+  "enabledPlugins": {
+    "impeccable@impeccable": true,
+    "intent@intent": true
+  }
+}

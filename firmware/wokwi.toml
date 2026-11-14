@@ -1,0 +1,16 @@
+[wokwi]
+version = 1
+firmware = '.pio/build/esp32dev/firmware.bin'
+elf = '.pio/build/esp32dev/firmware.elf'
+
+[[chip]]
+name = 'pulse'
+binary = 'chips/pulse.chip.wasm'
+
+[[chip]]
+name = 'co2'
+binary = 'chips/co2.chip.wasm'
+
+[[chip]]
+name = 'analyzer'
+binary = 'chips/analyzer.chip.wasm'

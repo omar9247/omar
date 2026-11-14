@@ -1,0 +1,77 @@
+{
+  "runtime": "Pygbag 0.9.3 / CPython 3.12",
+  "purpose": "Self-hosted browser runtime for Lunar Arcade Hub; no public-origin requests are required.",
+  "source_repositories": [
+    "https://github.com/pygame-web/pygbag",
+    "https://github.com/pygame-web/archives"
+  ],
+  "files": [
+    {
+      "path": "pythons.js",
+      "source": "https://pygame-web.github.io/cdn/0.9.3/pythons.js",
+      "license": "MIT",
+      "sha256": "6da43e3e62c3db933421b99681e8ef99ed9b0ce1589ed8a0c69b88443278e019",
+      "bytes": 69205
+    },
+    {
+      "path": "cpythonrc.py",
+      "source": "https://pygame-web.github.io/cdn/0.9.3/cpythonrc.py",
+      "license": "MIT (Pygbag glue; embedded CPython/pygame notices apply)",
+      "source_sha256": "b8a0b8168b58ef7c38c17d4705c9cbe1751fa667a0a6d26ed26f0537134735de",
+      "sha256": "04651974adbf8c08d28455ec68e7180700015a7b71bd7a8554c302c31edbdda8",
+      "bytes": 50493,
+      "local_transform": "Set release/DEV PyConfig indexes and aio.pep0723.Config.PKG_BASE_DEFAULT/PKG_INDEXES to runtime/ before import scanning."
+    },
+    {
+      "path": "empty.ogg",
+      "source": "https://pygame-web.github.io/cdn/0.9.3/empty.ogg",
+      "license": "Pygbag project asset",
+      "sha256": "884c20d864222b845aa78fb078ec370f4ddaa203cd92ace28440ed7733403b40",
+      "bytes": 4035
+    },
+    {
+      "path": "cpython312/main.js",
+      "source": "https://pygame-web.github.io/cdn/0.9.3/cpython312/main.js",
+      "license": "CPython PSF-2.0; pygame-ce LGPL-2.1-or-later",
+      "sha256": "01c4e4dc7145a482ad259d8272ce73d97b58ec2a141bfb57e620347730d159c7",
+      "bytes": 849985
+    },
+    {
+      "path": "cpython312/main.data",
+      "source": "https://pygame-web.github.io/cdn/0.9.3/cpython312/main.data",
+      "license": "CPython PSF-2.0; pygame-ce LGPL-2.1-or-later",
+      "sha256": "b068df4d59b06b113cfc3c4d6419bdf699d2c2eeb547c9119e2044c98cdc4a59",
+      "bytes": 6668609
+    },
+    {
+      "path": "cpython312/main.wasm",
+      "source": "https://pygame-web.github.io/cdn/0.9.3/cpython312/main.wasm",
+      "license": "CPython PSF-2.0; pygame-ce LGPL-2.1-or-later",
+      "sha256": "3cfb882de90feeb367325f0c58731932880c8f424fb5a670b98d035ae862b280",
+      "bytes": 13447111
+    },
+    {
+      "path": "index-0.9.3-cp312.json",
+      "source": "https://pygame-web.github.io/cdn/index-0.9.3-cp312.json",
+      "license": "Pygbag package-index metadata",
+      "source_sha256": "ec6edacc1b95700c99b8daecb8ce3949e58e96a1da5234c81d8a0071aa537213",
+      "sha256": "f816cb1a4da6fa908878cf93532ade34caf40a8aa71cb9def6f9877bfe8c5c2e",
+      "bytes": 1426,
+      "local_transform": "Replace the upstream -CDN- value with runtime/; retain the pinned pygame mapping."
+    },
+    {
+      "path": "cp312/pygame_ce-2.5.7-cp312-cp312-wasm32_bi_emscripten.whl",
+      "source": "https://pygame-web.github.io/cdn/cp312/pygame_ce-2.5.7-cp312-cp312-wasm32_bi_emscripten.whl",
+      "license": "LGPL-2.1-or-later",
+      "sha256": "4f2caa3020592950565f3649c41e2eeacd001be93da892d60e5a4a43d893a323",
+      "bytes": 1527290
+    }
+  ],
+  "license_urls": {
+    "pygbag": "https://github.com/pygame-web/pygbag/blob/main/LICENSE",
+    "python": "https://docs.python.org/3/license.html",
+    "pygame_ce": "https://github.com/pygame-community/pygame-ce/blob/main/docs/LGPL.txt",
+    "archives": "https://github.com/pygame-web/archives",
+    "provenance": "https://github.com/pygame-web/archives#readme"
+  }
+}

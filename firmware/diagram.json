@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "author": "AURA-Bio",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "chip-pulse",
+      "id": "pulse",
+      "top": -120,
+      "left": -260,
+      "attrs": {
+        "hr": "60",
+        "hrv": "55",
+        "on": "1"
+      }
+    },
+    {
+      "type": "chip-co2",
+      "id": "co2",
+      "top": 20,
+      "left": -260,
+      "attrs": {
+        "co2": "2.2"
+      }
+    },
+    {
+      "type": "chip-analyzer",
+      "id": "analyzer",
+      "top": 150,
+      "left": -260,
+      "attrs": {
+        "lym": "2679",
+        "il6": "3.7",
+        "nk": "100",
+        "vir": "0"
+      }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "pulse:VCC", "esp:3V3",   "red",    [ "h16", "*", "h-24" ] ],
+    [ "pulse:HR",  "esp:34",    "green",  [ "h24", "*", "h-32" ] ],
+    [ "pulse:HRV", "esp:35",    "blue",   [ "h32", "*", "h-40" ] ],
+    [ "pulse:ON",  "esp:25",    "orange", [ "h40", "*", "h-48" ] ],
+    [ "pulse:GND", "esp:GND.1", "black",  [ "h48", "*", "h-56" ] ],
+
+    [ "co2:VCC", "esp:3V3",   "red",    [ "h16", "*", "h-24" ] ],
+    [ "co2:CO2", "esp:32",    "yellow", [ "h56", "*", "h-64" ] ],
+    [ "co2:GND", "esp:GND.1", "black",  [ "h48", "*", "h-56" ] ],
+
+    [ "analyzer:VCC", "esp:3V3",   "red",     [ "h16", "*", "h-24" ] ],
+    [ "analyzer:IL6", "esp:VP",    "cyan",    [ "h64", "*", "h-72" ] ],
+    [ "analyzer:NK",  "esp:VN",    "magenta", [ "h72", "*", "h-80" ] ],
+    [ "analyzer:LYM", "esp:33",    "purple",  [ "h80", "*", "h-88" ] ],
+    [ "analyzer:VIR", "esp:26",    "white",   [ "h88", "*", "h-96" ] ],
+    [ "analyzer:GND", "esp:GND.1", "black",   [ "h48", "*", "h-56" ] ]
+  ],
+  "dependencies": {}
+}

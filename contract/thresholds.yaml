@@ -1,0 +1,157 @@
+# Thresholds and cross-system patterns (plan 4.1, 4.3). Shared contract: changed only by team agreement.
+# NFR-12: edit here, not in code. Source: team research doc "Nasa pre hackathon" (module numbers below, [n] = its
+# reference list).
+#   kind: abs = the value itself; delta = value minus personal baseline mean; pct = % change from baseline mean.
+#   direction: the bad side. Comparisons are strict (> / <), so the doc's ">= 40%" triggers at just over 40%.
+#   For delta and pct, amber/red are magnitudes. A list of rules = the worst band of any of them.
+#   basis: published | proposed (NFR-13), as the research doc tags it.
+# Not covered (no number in the doc, or the input does not exist yet):
+#   resting_hr_bpm red (+20 bpm "with symptoms"), bp_systolic_mmhg amber ("persistent deviation"),
+#   il6_pg_ml ("persistent elevation"), viral PCR red (rising load with symptoms).
+baseline_days: 14            # same as generator.sim.BASELINE_DAYS; the model is trained on that baseline
+lab_baseline_days: 28        # signals sampled less than daily (interval_days > 1). Team choice 2026-11-13: 14 days gave
+                             # weekly labs 2 samples; the immune-risk score's 95th percentile on normal crew fell 93 -> 43
+stale_after_intervals: 1.5   # proposed: stale when the last reading is older than this many expected intervals
+                             # (interval_days in signals.yaml, default 1 day)
+thresholds:
+  resting_hr_bpm:          {kind: delta, direction: above, amber: 10,          basis: proposed,  citation: "Research doc 4.4"}
+  rmssd_ms:                {kind: pct,   direction: below, amber: 20, red: 35, basis: proposed,  citation: "Research doc 4.4; measurement standard [26] Task Force ESC/NASPE 1996"}
+  bp_systolic_mmhg:        {kind: abs,   direction: above,            red: 180, basis: published, citation: "Research doc 4.4; [27] Whelton et al. 2018 (conventional severe hypertension)"}
+  sleep_duration_h:        {kind: abs,   direction: below, amber: 7,  red: 5,  basis: proposed,  citation: "Research doc 4.3; association [19] Jones et al. 2022, 7 h target proposed"}
+  sleep_efficiency_pct:    {kind: abs,   direction: below, amber: 85, red: 75, basis: proposed,  citation: "Research doc 4.3"}
+  reaction_lapses_pct:     {kind: pct,   direction: above, amber: 20, red: 40, basis: proposed,  citation: "Research doc 4.3; personal baseline [21] Basner et al. 2011"}
+  mood_score:              {kind: pct,   direction: below, amber: 20, red: 40, basis: proposed,  citation: "Team choice 2026-11-13; research doc 4.3 gives no number ('persistent deterioration')"}
+  cabin_co2_mmhg:          {kind: abs,   direction: above, amber: 2.5, red: 3, basis: published, citation: "Research doc 4.6; [30] NASA OCHMO-TB-004"}
+  exercise_completion_pct: {kind: abs,   direction: below, amber: 90, red: 75, basis: proposed,  citation: "Research doc 4.2"}
+  lymphocytes_per_ul:
+    - {kind: pct, direction: below, amber: 20, red: 40, basis: proposed,  citation: "Research doc 4.1"}
+    - {kind: abs, direction: below, red: 1000,          basis: published, citation: "Research doc 4.1; [9] Merck Manual (lymphocytopenia)"}
+  nk_activity_pct:         {kind: pct,   direction: below, amber: 20, red: 40, basis: proposed,  citation: "Research doc 4.1; ~50% fall at flight day 90 [1] Bigley et al. 2019"}
+  dose_mgy:                {kind: pct,   direction: above, amber: 30,          basis: proposed,  citation: "Team choice 2026-11-13: daily spike; the 10 Sep 2017 solar event added +51% on the ISS (Berger et al. 2018)"}
+  viral_pcr_positive:      {kind: abs,   direction: above, amber: 0.5,         basis: published, citation: "Research doc 4.1; [3, 4, 5] Mehta 2013, 2017, Rooney 2019. An isolated positive is not disease"}
+
+# Cross-system patterns (research doc section 7 and module tables). Fires when EVERY listed signal is amber or red;
+# the alert is red if any of them is red (team choice 2026-11-13).
+#   min_band: per-signal minimum band for this pattern (default amber). days: must also have matched on each of the
+#   previous days - 1 days (default 1). not_measured = inputs the doc names that we have no
+# signal for; the pattern matches without them and the alert lists them. Wording is the doc's: an association that
+# guides confirmatory testing, never a diagnosis (NFR-10).
+patterns:
+  - id: co2_performance
+    name: CO₂-associated performance impairment
+    signals: [cabin_co2_mmhg, reaction_lapses_pct]
+    # Team choice 2026-11-13: with amber CO2 on a single day this fired in 66% of normal simulated runs (real ISS CO2
+    # is above 2.5 mmHg on ~35% of days; lapse noise exceeds the +25% co2_creep effect). Red CO2 (3 mmHg NASA 1-hour
+    # limit) on 2 days running: 18% of normal runs, 74% of co2_creep runs (200 runs each).
+    min_band: {cabin_co2_mmhg: red}
+    days: 2
+    not_measured: [headache]
+    response_system: Check cabin CO₂ sensors and ventilation; review CO₂ exposure; neurological assessment if symptoms persist.
+    response_crew: Report headaches and congestion. Follow cabin ventilation and air-quality procedures.
+    basis: proposed
+    citation: "Research doc 7, 4.6; [30] NASA OCHMO-TB-004, [31] Law et al. 2014"
+  - id: sleep_loss_impairment
+    name: Sleep-loss-related neurobehavioral impairment
+    signals: [sleep_duration_h, reaction_lapses_pct, mood_score]
+    not_measured: []
+    response_system: Review schedule and workload; reassess fitness for safety-critical tasks.
+    response_crew: Protect an 8-hour sleep opportunity each night and keep a consistent light-dark schedule. Report persistent sleep difficulty, mood change or errors you notice in your own work.
+    basis: proposed
+    citation: "Research doc 4.3; [19] Jones et al. 2022"
+  - id: cardio_deconditioning
+    name: Cardiovascular deconditioning
+    signals: [resting_hr_bpm, exercise_completion_pct]
+    not_measured: [post-exercise heart-rate recovery]
+    response_system: Exercise review, ECG and cardiovascular assessment.
+    response_crew: Complete the prescribed aerobic and resistance exercise. Report dizziness, palpitations, chest pain, shortness of breath or visual changes immediately.
+    basis: proposed
+    citation: "Research doc 4.4; [25] Space cardiovascular review 2024, [13] NASA OCHMO-TB-031"
+  - id: autonomic_stress
+    name: Autonomic stress, illness or deconditioning
+    signals: [resting_hr_bpm, rmssd_ms, sleep_duration_h]
+    not_measured: []
+    response_system: Repeat measurements at a consistent time; sleep and hydration review; infection screen.
+    response_crew: Record resting heart rate and HRV at the same time each day and protect your sleep opportunity. Report dizziness, palpitations or chest pain immediately.
+    basis: proposed
+    citation: "Research doc 4.4; [26] Task Force ESC/NASPE 1996, [19] Jones et al. 2022"
+  - id: radiation_immune
+    name: Radiation-associated immune dysfunction
+    # dose_mgy has no threshold yet, so this pattern cannot fire until a mission dose budget is chosen
+    signals: [dose_mgy, lymphocytes_per_ul, nk_activity_pct]
+    not_measured: []
+    response_system: Complete blood count, lymphocyte subsets and NK functional assay; dosimetry review.
+    response_crew: Wear and monitor the personal dosimeter, follow radiation-protection instructions and complete scheduled blood sampling.
+    basis: proposed
+    citation: "Research doc 7, 5; [1] Bigley et al. 2019, [33] NASA-STD-3001"
+
+# Cumulative effective dose = sum of daily dose_mgy x the current preset's quality_factor (presets.yaml), against the
+# career limit there. Shown as the derived signal cumulative_dose_msv (radiation system). Team choice 2026-11-13.
+cumulative_dose:
+  amber_pct_of_limit: 80     # proposed ("approaching the budget", research doc 5)
+  red_pct_of_limit: 100      # published: NASA-STD-3001 career limit [33]
+  prior_career_msv: 0        # ASSUMPTION: no dose before this mission
+
+# Response per signal when amber or red (research doc section 5 = medical system; section 6 = astronaut).
+responses:
+  resting_hr_bpm: &cardio
+    amber: Repeat measurements at a consistent time; review hydration, exercise and recovery.
+    red: Urgent medical evaluation, ECG and cardiovascular assessment.
+    crew: Record resting heart rate and HRV at the same time each day. Report dizziness, palpitations, chest pain, shortness of breath or visual changes immediately.
+  rmssd_ms: *cardio
+  bp_systolic_mmhg:
+    amber: Repeat the blood-pressure series; review cuff technique, hydration and stress.
+    red: Confirm blood pressure; urgent medical evaluation. Chest pain, fainting or severe breathlessness needs immediate emergency assessment.
+    crew: Take scheduled blood-pressure measurements. Report chest pain, fainting or severe breathlessness immediately.
+  sleep_duration_h: &sleep
+    amber: Adjust workload and circadian lighting; review the sleep environment and schedule.
+    red: Reassess fitness for safety-critical tasks; arrange medical and behavioural-health evaluation.
+    crew: Protect an 8-hour sleep opportunity each night and keep a consistent light-dark schedule. Report persistent sleep difficulty.
+  sleep_efficiency_pct: *sleep
+  reaction_lapses_pct: *sleep
+  mood_score:
+    amber: Increase check-ins; review workload and communication.
+    red: Behavioural-health consultation with the flight surgeon; consider task restrictions.
+    crew: Complete the daily check-in. Report mood change or errors you notice in your own work.
+  cabin_co2_mmhg:
+    amber: Check cabin CO₂ sensors and ventilation; repeat symptom review.
+    red: Investigate a cabin environmental malfunction; neurological evaluation if symptoms persist.
+    crew: Report headaches and congestion. Follow cabin ventilation and air-quality procedures.
+  exercise_completion_pct:
+    amber: Review barriers (equipment, schedule, pain); adjust workload.
+    red: Clinical musculoskeletal assessment; revise the exercise prescription.
+    crew: Complete the prescribed resistance and aerobic exercise. Report muscle weakness or bone pain.
+  lymphocytes_per_ul:
+    amber: Repeat blood count with differential within 24-48 h; review sleep, nutrition and workload.
+    red: Full immune assessment, lymphocyte subsets, infection screening, flight-surgeon consultation.
+    crew: &immune_crew Report fever, oral lesions, rashes, shingles-like pain or unusual fatigue. Keep sleep, nutrition and hygiene routines and complete scheduled sampling.
+  nk_activity_pct:
+    amber: Repeat the NK cytotoxicity assay; review stress and exercise recovery.
+    red: Investigate impaired antiviral surveillance; EBV, CMV and VZV PCR.
+    crew: *immune_crew
+  viral_pcr_positive:
+    amber: Repeat the sample; check for symptoms (rash, oral lesions, fever).
+    red: Clinical assessment with viral-load trend. Do not automatically start antimicrobials.
+    crew: *immune_crew
+  dose_mgy: &radiation
+    amber: Calculate cumulative exposure and reassess mission dose projections.
+    red: Radiation-event assessment, dosimetry review, blood count and medical consultation; adjust operations per radiation-protection protocols.
+    crew: Wear and monitor the personal dosimeter, follow radiation-protection instructions and move to shelter when instructed.
+  cumulative_dose_msv: *radiation
+
+# Immune-risk score (FR-15, research doc 7). RESEARCH CONCEPT: equal placeholder weights (team choice 2026-11-13), not
+# derived from data. Each input's deviation from baseline in its bad direction (z, negatives = 0), weighted mean over
+# the inputs that have a z, scaled so full_scale_z = 100.
+immune_risk:
+  full_scale_z: 3            # proposed: a 3-SD average deviation reads as 100
+  inputs:
+    nk_activity_pct:    {direction: below, weight: 1}
+    lymphocytes_per_ul: {direction: below, weight: 1}
+    rmssd_ms:           {direction: below, weight: 1}
+    sleep_duration_h:   {direction: below, weight: 1}
+    dose_mgy:           {direction: above, weight: 1}
+  not_measured: [T-cell function, salivary sIgA, microbiome change]
+
+# Daily check-in scoring (FR-12). The app sends raw reaction times and mood answers; the backend scores them.
+checkin:
+  lapse_ms: 355              # published: PVT-B lapse threshold [21] Basner et al. 2011
+  mood_scale: [0, 10]        # proposed: each mood question answered on 0-10 (10 = best); mood_score = mean

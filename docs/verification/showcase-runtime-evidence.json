@@ -1,0 +1,1964 @@
+{
+  "started": {
+    "co2_creep": {
+      "name": "co2_creep",
+      "title": "Cabin CO\u2082 creep",
+      "story": "Cabin CO\u2082 and related performance signals gradually move from this simulated crew member\u2019s own baseline.",
+      "expected_events": [
+        "Mission day 22: the approved co2_creep effects begin at the existing scenario onset.",
+        "Mission days 22\u201329: CO\u2082 and linked performance effects ramp over eight days; a rule alert is possible, not guaranteed."
+      ],
+      "watch_signals": [
+        "cabin_co2_mmhg",
+        "reaction_lapses_pct",
+        "mood_score"
+      ],
+      "scenario": "co2_creep",
+      "source": "generator.sim.SCENARIOS['co2_creep'] (seed 12)",
+      "crew_id": "demo_co2_creep",
+      "days": 40,
+      "onset_day": 22,
+      "onset_index": 21,
+      "provenance": "simulated",
+      "simulated": true,
+      "label": "simulated",
+      "state": "running",
+      "status": "running",
+      "completed_days": 0,
+      "speed": 0.1,
+      "progress": {
+        "day": 0,
+        "days": 40,
+        "fraction": 0.0
+      },
+      "error": null
+    },
+    "sleep_debt": {
+      "name": "sleep_debt",
+      "title": "Accumulating sleep debt",
+      "story": "Sleep duration, efficiency, reaction lapses, and mood follow the existing simulated sleep-debt effects.",
+      "expected_events": [
+        "Mission day 22: the approved sleep_debt effects begin at the existing scenario onset.",
+        "Mission days 22\u201326: sleep effects ramp over five days; downstream impairment alerts are possible, not guaranteed."
+      ],
+      "watch_signals": [
+        "sleep_duration_h",
+        "sleep_efficiency_pct",
+        "reaction_lapses_pct",
+        "mood_score"
+      ],
+      "scenario": "sleep_debt",
+      "source": "generator.sim.SCENARIOS['sleep_debt'] (seed 12)",
+      "crew_id": "demo_sleep_debt",
+      "days": 40,
+      "onset_day": 22,
+      "onset_index": 21,
+      "provenance": "simulated",
+      "simulated": true,
+      "label": "simulated",
+      "state": "running",
+      "status": "running",
+      "completed_days": 0,
+      "speed": 0.1,
+      "progress": {
+        "day": 0,
+        "days": 40,
+        "fraction": 0.0
+      },
+      "error": null
+    },
+    "sensor_loss": {
+      "name": "sensor_loss",
+      "title": "Sensor dropout",
+      "story": "Two simulated sensors stop publishing at the existing sensor-loss onset so the core\u2019s stale-data handling is visible.",
+      "expected_events": [
+        "Mission day 22: resting_hr_bpm and rmssd_ms readings stop in the generated stream.",
+        "After the configured stale interval: the core may mark those signals stale; exact status timing is governed by contract thresholds."
+      ],
+      "watch_signals": [
+        "resting_hr_bpm",
+        "rmssd_ms"
+      ],
+      "scenario": "sensor_loss",
+      "source": "generator.sim.SCENARIOS['sensor_loss'] (seed 12)",
+      "crew_id": "demo_sensor_loss",
+      "days": 40,
+      "onset_day": 22,
+      "onset_index": 21,
+      "provenance": "simulated",
+      "simulated": true,
+      "label": "simulated",
+      "state": "running",
+      "status": "running",
+      "completed_days": 0,
+      "speed": 0.1,
+      "progress": {
+        "day": 0,
+        "days": 40,
+        "fraction": 0.0
+      },
+      "error": null
+    }
+  },
+  "cards": {
+    "normal": {
+      "name": "normal",
+      "title": "Nominal flight day",
+      "story": "A seed-12 simulated crew member follows ordinary day-to-day variation with no injected scenario effect.",
+      "expected_events": [
+        "Mission days 1\u201314: daily-signal baselines are established; weekly lab baselines need 28 days.",
+        "Mission day 22 onward: normal variation continues; no exact alert is guaranteed."
+      ],
+      "watch_signals": [
+        "cabin_co2_mmhg",
+        "sleep_duration_h",
+        "resting_hr_bpm"
+      ],
+      "scenario": "normal",
+      "source": "generator.sim.SCENARIOS['normal'] (seed 12)",
+      "crew_id": "demo_normal",
+      "days": 40,
+      "onset_day": 22,
+      "onset_index": 21,
+      "provenance": "simulated",
+      "simulated": true,
+      "label": "simulated",
+      "state": "ready",
+      "status": "ready",
+      "completed_days": 0,
+      "speed": 1.0,
+      "progress": {
+        "day": 0,
+        "days": 40,
+        "fraction": 0.0
+      },
+      "error": null
+    },
+    "co2_creep": {
+      "name": "co2_creep",
+      "title": "Cabin CO\u2082 creep",
+      "story": "Cabin CO\u2082 and related performance signals gradually move from this simulated crew member\u2019s own baseline.",
+      "expected_events": [
+        "Mission day 22: the approved co2_creep effects begin at the existing scenario onset.",
+        "Mission days 22\u201329: CO\u2082 and linked performance effects ramp over eight days; a rule alert is possible, not guaranteed."
+      ],
+      "watch_signals": [
+        "cabin_co2_mmhg",
+        "reaction_lapses_pct",
+        "mood_score"
+      ],
+      "scenario": "co2_creep",
+      "source": "generator.sim.SCENARIOS['co2_creep'] (seed 12)",
+      "crew_id": "demo_co2_creep",
+      "days": 40,
+      "onset_day": 22,
+      "onset_index": 21,
+      "provenance": "simulated",
+      "simulated": true,
+      "label": "simulated",
+      "state": "completed",
+      "status": "completed",
+      "completed_days": 40,
+      "speed": 0.1,
+      "progress": {
+        "day": 40,
+        "days": 40,
+        "fraction": 1.0
+      },
+      "error": null
+    },
+    "sleep_debt": {
+      "name": "sleep_debt",
+      "title": "Accumulating sleep debt",
+      "story": "Sleep duration, efficiency, reaction lapses, and mood follow the existing simulated sleep-debt effects.",
+      "expected_events": [
+        "Mission day 22: the approved sleep_debt effects begin at the existing scenario onset.",
+        "Mission days 22\u201326: sleep effects ramp over five days; downstream impairment alerts are possible, not guaranteed."
+      ],
+      "watch_signals": [
+        "sleep_duration_h",
+        "sleep_efficiency_pct",
+        "reaction_lapses_pct",
+        "mood_score"
+      ],
+      "scenario": "sleep_debt",
+      "source": "generator.sim.SCENARIOS['sleep_debt'] (seed 12)",
+      "crew_id": "demo_sleep_debt",
+      "days": 40,
+      "onset_day": 22,
+      "onset_index": 21,
+      "provenance": "simulated",
+      "simulated": true,
+      "label": "simulated",
+      "state": "completed",
+      "status": "completed",
+      "completed_days": 40,
+      "speed": 0.1,
+      "progress": {
+        "day": 40,
+        "days": 40,
+        "fraction": 1.0
+      },
+      "error": null
+    },
+    "sensor_loss": {
+      "name": "sensor_loss",
+      "title": "Sensor dropout",
+      "story": "Two simulated sensors stop publishing at the existing sensor-loss onset so the core\u2019s stale-data handling is visible.",
+      "expected_events": [
+        "Mission day 22: resting_hr_bpm and rmssd_ms readings stop in the generated stream.",
+        "After the configured stale interval: the core may mark those signals stale; exact status timing is governed by contract thresholds."
+      ],
+      "watch_signals": [
+        "resting_hr_bpm",
+        "rmssd_ms"
+      ],
+      "scenario": "sensor_loss",
+      "source": "generator.sim.SCENARIOS['sensor_loss'] (seed 12)",
+      "crew_id": "demo_sensor_loss",
+      "days": 40,
+      "onset_day": 22,
+      "onset_index": 21,
+      "provenance": "simulated",
+      "simulated": true,
+      "label": "simulated",
+      "state": "completed",
+      "status": "completed",
+      "completed_days": 40,
+      "speed": 0.1,
+      "progress": {
+        "day": 40,
+        "days": 40,
+        "fraction": 1.0
+      },
+      "error": null
+    }
+  },
+  "statuses": {
+    "co2_creep": {
+      "crew_id": "demo_co2_creep",
+      "ts": "2026-12-23T10:00:00+00:00",
+      "baseline_ready": true,
+      "mission": {
+        "name": "station",
+        "alert_wording": "Contact the ground",
+        "one_way_delay_s": 0,
+        "dose_mgy_day": 0.285,
+        "quality_factor": 1.85
+      },
+      "systems": {
+        "cardiovascular": "green",
+        "neurocognitive": "red",
+        "environment": "green",
+        "bone_muscle": "green",
+        "radiation": "green",
+        "immune": "green"
+      },
+      "signals": {
+        "resting_hr_bpm": {
+          "system": "cardiovascular",
+          "band": "green",
+          "value": 59.041,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "delta",
+            "direction": "above",
+            "amber": 10,
+            "basis": "proposed",
+            "citation": "Research doc 4.4"
+          },
+          "baseline_mean": 61.180142857142854,
+          "baseline_sd": 3.5693235699853196,
+          "z": -0.599313235463171
+        },
+        "rmssd_ms": {
+          "system": "cardiovascular",
+          "band": "green",
+          "value": 83.975,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "below",
+            "amber": 20,
+            "red": 35,
+            "basis": "proposed",
+            "citation": "Research doc 4.4; measurement standard [26] Task Force ESC/NASPE 1996"
+          },
+          "baseline_mean": 75.405,
+          "baseline_sd": 30.609380354595675,
+          "z": 0.27997953244137785
+        },
+        "bp_systolic_mmhg": {
+          "system": "cardiovascular",
+          "band": "green",
+          "value": 112.275,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "above",
+            "red": 180,
+            "basis": "published",
+            "citation": "Research doc 4.4; [27] Whelton et al. 2018 (conventional severe hypertension)"
+          },
+          "baseline_mean": 121.13521428571428,
+          "baseline_sd": 7.2639835667656705,
+          "z": -1.2197459154852326
+        },
+        "sleep_duration_h": {
+          "system": "neurocognitive",
+          "band": "amber",
+          "value": 6.231,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "below",
+            "amber": 7,
+            "red": 5,
+            "basis": "proposed",
+            "citation": "Research doc 4.3; association [19] Jones et al. 2022, 7 h target proposed"
+          },
+          "baseline_mean": 6.657785714285714,
+          "baseline_sd": 1.0358919737688297,
+          "z": -0.41199828272919475,
+          "response": {
+            "system": "Adjust workload and circadian lighting; review the sleep environment and schedule.",
+            "crew": "Protect an 8-hour sleep opportunity each night and keep a consistent light-dark schedule. Report persistent sleep difficulty."
+          }
+        },
+        "sleep_efficiency_pct": {
+          "system": "neurocognitive",
+          "band": "red",
+          "value": 74.463,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "below",
+            "amber": 85,
+            "red": 75,
+            "basis": "proposed",
+            "citation": "Research doc 4.3"
+          },
+          "baseline_mean": 82.98,
+          "baseline_sd": 9.077254506986975,
+          "z": -0.938279299478083,
+          "response": {
+            "system": "Reassess fitness for safety-critical tasks; arrange medical and behavioural-health evaluation.",
+            "crew": "Protect an 8-hour sleep opportunity each night and keep a consistent light-dark schedule. Report persistent sleep difficulty."
+          }
+        },
+        "reaction_lapses_pct": {
+          "system": "neurocognitive",
+          "band": "green",
+          "value": 2.093,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "above",
+            "amber": 20,
+            "red": 40,
+            "basis": "proposed",
+            "citation": "Research doc 4.3; personal baseline [21] Basner et al. 2011"
+          },
+          "baseline_mean": 2.6887857142857143,
+          "baseline_sd": 1.6023742086028483,
+          "z": -0.3718143434205643
+        },
+        "mood_score": {
+          "system": "neurocognitive",
+          "band": "green",
+          "value": 5.016,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "below",
+            "amber": 20,
+            "red": 40,
+            "basis": "proposed",
+            "citation": "Team choice 2026-11-13; research doc 4.3 gives no number ('persistent deterioration')"
+          },
+          "baseline_mean": 5.362571428571429,
+          "baseline_sd": 0.6744433276397671,
+          "z": -0.5138629360961509
+        },
+        "cabin_co2_mmhg": {
+          "system": "environment",
+          "band": "green",
+          "value": 2.439,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "above",
+            "amber": 2.5,
+            "red": 3,
+            "basis": "published",
+            "citation": "Research doc 4.6; [30] NASA OCHMO-TB-004"
+          },
+          "baseline_mean": 1.7849285714285714,
+          "baseline_sd": 0.5807740808326701,
+          "z": 1.1262062997606062
+        },
+        "exercise_completion_pct": {
+          "system": "bone_muscle",
+          "band": "green",
+          "value": 95.329,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "below",
+            "amber": 90,
+            "red": 75,
+            "basis": "proposed",
+            "citation": "Research doc 4.2"
+          },
+          "baseline_mean": 99.00242857142857,
+          "baseline_sd": 1.4746414799894585,
+          "z": -2.491065537811152
+        },
+        "dose_mgy": {
+          "system": "radiation",
+          "band": "green",
+          "value": 0.299,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "above",
+            "amber": 30,
+            "basis": "proposed",
+            "citation": "Team choice 2026-11-13: daily spike; the 10 Sep 2017 solar event added +51% on the ISS (Berger et al. 2018)"
+          },
+          "baseline_mean": 0.3082857142857143,
+          "baseline_sd": 0.015364437316932053,
+          "z": -0.6043640970490446
+        },
+        "lymphocytes_per_ul": {
+          "system": "immune",
+          "band": "green",
+          "value": 2863.108,
+          "ts": "2026-12-19T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": [
+            {
+              "kind": "pct",
+              "direction": "below",
+              "amber": 20,
+              "red": 40,
+              "basis": "proposed",
+              "citation": "Research doc 4.1"
+            },
+            {
+              "kind": "abs",
+              "direction": "below",
+              "red": 1000,
+              "basis": "published",
+              "citation": "Research doc 4.1; [9] Merck Manual (lymphocytopenia)"
+            }
+          ],
+          "baseline_mean": 2354.732,
+          "baseline_sd": 56.23249989700501,
+          "z": 9.04060820577313
+        },
+        "il6_pg_ml": {
+          "system": "immune",
+          "band": "unknown",
+          "value": 3.206,
+          "ts": "2026-12-19T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": null,
+          "baseline_mean": 3.46175,
+          "baseline_sd": 0.3640177422415928,
+          "z": -0.70257564487135
+        },
+        "nk_activity_pct": {
+          "system": "immune",
+          "band": "green",
+          "value": 87.936,
+          "ts": "2026-12-19T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "below",
+            "amber": 20,
+            "red": 40,
+            "basis": "proposed",
+            "citation": "Research doc 4.1; ~50% fall at flight day 90 [1] Bigley et al. 2019"
+          },
+          "baseline_mean": 109.11800000000001,
+          "baseline_sd": 25.847484145786158,
+          "z": -0.8194994870885043
+        },
+        "viral_pcr_positive": {
+          "system": "immune",
+          "band": "green",
+          "value": 0.0,
+          "ts": "2026-12-19T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "above",
+            "amber": 0.5,
+            "basis": "published",
+            "citation": "Research doc 4.1; [3, 4, 5] Mehta 2013, 2017, Rooney 2019. An isolated positive is not disease"
+          },
+          "baseline_mean": 0.0,
+          "baseline_sd": 0.0,
+          "z": null
+        },
+        "cumulative_dose_msv": {
+          "system": "radiation",
+          "band": "green",
+          "value": 23.03,
+          "pct_of_limit": 3.84,
+          "limit_msv": 600,
+          "provenance": "derived"
+        }
+      },
+      "alerts": [
+        {
+          "id": null,
+          "signal": "cabin_co2_mmhg",
+          "name": "cabin_co2_mmhg red",
+          "rule": {
+            "kind": "abs",
+            "direction": "above",
+            "amber": 2.5,
+            "red": 3,
+            "basis": "published",
+            "citation": "Research doc 4.6; [30] NASA OCHMO-TB-004"
+          },
+          "response": {
+            "system": "Investigate a cabin environmental malfunction; neurological evaluation if symptoms persist.",
+            "crew": "Report headaches and congestion. Follow cabin ventilation and air-quality procedures."
+          },
+          "alert_id": 5,
+          "level": "red",
+          "fired": {
+            "cabin_co2_mmhg": {
+              "band": "red",
+              "value": 3.075,
+              "ts": "2026-12-19T10:00:00+00:00",
+              "provenance": "simulated"
+            }
+          },
+          "started_ts": "2026-12-12T10:00:00+00:00",
+          "last_ts": "2026-12-19T10:00:00+00:00",
+          "active": false,
+          "acknowledged_at": null,
+          "action": "Contact the ground"
+        },
+        {
+          "id": "co2_performance",
+          "name": "CO\u2082-associated performance impairment",
+          "signals": [
+            "cabin_co2_mmhg",
+            "reaction_lapses_pct"
+          ],
+          "min_band": {
+            "cabin_co2_mmhg": "red"
+          },
+          "days": 2,
+          "not_measured": [
+            "headache"
+          ],
+          "response_system": "Check cabin CO\u2082 sensors and ventilation; review CO\u2082 exposure; neurological assessment if symptoms persist.",
+          "response_crew": "Report headaches and congestion. Follow cabin ventilation and air-quality procedures.",
+          "basis": "proposed",
+          "citation": "Research doc 7, 4.6; [30] NASA OCHMO-TB-004, [31] Law et al. 2014",
+          "alert_id": 6,
+          "level": "red",
+          "fired": {
+            "cabin_co2_mmhg": {
+              "band": "red",
+              "value": 3.382,
+              "ts": "2026-12-13T10:00:00+00:00",
+              "provenance": "simulated"
+            },
+            "reaction_lapses_pct": {
+              "band": "amber",
+              "value": 3.489,
+              "ts": "2026-12-13T10:00:00+00:00",
+              "provenance": "simulated"
+            }
+          },
+          "started_ts": "2026-12-13T10:00:00+00:00",
+          "last_ts": "2026-12-13T10:00:00+00:00",
+          "active": false,
+          "acknowledged_at": null,
+          "action": "Contact the ground"
+        },
+        {
+          "id": "co2_performance",
+          "name": "CO\u2082-associated performance impairment",
+          "signals": [
+            "cabin_co2_mmhg",
+            "reaction_lapses_pct"
+          ],
+          "min_band": {
+            "cabin_co2_mmhg": "red"
+          },
+          "days": 2,
+          "not_measured": [
+            "headache"
+          ],
+          "response_system": "Check cabin CO\u2082 sensors and ventilation; review CO\u2082 exposure; neurological assessment if symptoms persist.",
+          "response_crew": "Report headaches and congestion. Follow cabin ventilation and air-quality procedures.",
+          "basis": "proposed",
+          "citation": "Research doc 7, 4.6; [30] NASA OCHMO-TB-004, [31] Law et al. 2014",
+          "alert_id": 8,
+          "level": "red",
+          "fired": {
+            "cabin_co2_mmhg": {
+              "band": "red",
+              "value": 3.075,
+              "ts": "2026-12-19T10:00:00+00:00",
+              "provenance": "simulated"
+            },
+            "reaction_lapses_pct": {
+              "band": "red",
+              "value": 4.272,
+              "ts": "2026-12-19T10:00:00+00:00",
+              "provenance": "simulated"
+            }
+          },
+          "started_ts": "2026-12-19T10:00:00+00:00",
+          "last_ts": "2026-12-19T10:00:00+00:00",
+          "active": false,
+          "acknowledged_at": null,
+          "action": "Contact the ground"
+        }
+      ],
+      "immune_risk": {
+        "score": 8.2,
+        "inputs": {
+          "nk_activity_pct": 0.82,
+          "lymphocytes_per_ul": 0.0,
+          "rmssd_ms": 0.0,
+          "sleep_duration_h": 0.41,
+          "dose_mgy": 0.0
+        },
+        "not_measured": [
+          "T-cell function",
+          "salivary sIgA",
+          "microbiome change"
+        ],
+        "label": "research concept, not validated on crew data; placeholder weights"
+      },
+      "anomaly": {
+        "crew_id": "demo_co2_creep",
+        "score": 0.211,
+        "anomalous": false,
+        "detector": "ewma",
+        "scores": {
+          "2d": 0.082,
+          "ewma": 0.211
+        },
+        "contributions": {
+          "resting_hr_bpm": 0.0,
+          "rmssd_ms": 0.008,
+          "bp_systolic_mmhg": 0.003,
+          "sleep_duration_h": 0.0,
+          "sleep_efficiency_pct": 0.0,
+          "reaction_lapses_pct": 0.524,
+          "mood_score": 0.217,
+          "cabin_co2_mmhg": 0.208,
+          "exercise_completion_pct": 0.032,
+          "dose_mgy": 0.007
+        },
+        "drift": {
+          "resting_hr_bpm": 0.0,
+          "rmssd_ms": -0.153,
+          "bp_systolic_mmhg": -0.094,
+          "sleep_duration_h": 0.0,
+          "sleep_efficiency_pct": 0.0,
+          "reaction_lapses_pct": 1.427,
+          "mood_score": -0.738,
+          "cabin_co2_mmhg": 1.552,
+          "exercise_completion_pct": -0.346,
+          "dose_mgy": 0.093
+        },
+        "model_version": "8d30c5cab8db",
+        "label": "research concept, not validated on crew data",
+        "available": true
+      },
+      "disclaimer": "Not a medical device. Research concept; all crew data is simulated."
+    },
+    "sleep_debt": {
+      "crew_id": "demo_sleep_debt",
+      "ts": "2026-12-23T10:00:00+00:00",
+      "baseline_ready": true,
+      "mission": {
+        "name": "station",
+        "alert_wording": "Contact the ground",
+        "one_way_delay_s": 0,
+        "dose_mgy_day": 0.285,
+        "quality_factor": 1.85
+      },
+      "systems": {
+        "cardiovascular": "green",
+        "neurocognitive": "red",
+        "environment": "green",
+        "bone_muscle": "green",
+        "radiation": "green",
+        "immune": "green"
+      },
+      "signals": {
+        "resting_hr_bpm": {
+          "system": "cardiovascular",
+          "band": "green",
+          "value": 59.041,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "delta",
+            "direction": "above",
+            "amber": 10,
+            "basis": "proposed",
+            "citation": "Research doc 4.4"
+          },
+          "baseline_mean": 61.180142857142854,
+          "baseline_sd": 3.5693235699853196,
+          "z": -0.599313235463171
+        },
+        "rmssd_ms": {
+          "system": "cardiovascular",
+          "band": "green",
+          "value": 62.982,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "below",
+            "amber": 20,
+            "red": 35,
+            "basis": "proposed",
+            "citation": "Research doc 4.4; measurement standard [26] Task Force ESC/NASPE 1996"
+          },
+          "baseline_mean": 75.405,
+          "baseline_sd": 30.609380354595675,
+          "z": -0.4058559780069125
+        },
+        "bp_systolic_mmhg": {
+          "system": "cardiovascular",
+          "band": "green",
+          "value": 112.275,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "above",
+            "red": 180,
+            "basis": "published",
+            "citation": "Research doc 4.4; [27] Whelton et al. 2018 (conventional severe hypertension)"
+          },
+          "baseline_mean": 121.13521428571428,
+          "baseline_sd": 7.2639835667656705,
+          "z": -1.2197459154852326
+        },
+        "sleep_duration_h": {
+          "system": "neurocognitive",
+          "band": "red",
+          "value": 3.831,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "below",
+            "amber": 7,
+            "red": 5,
+            "basis": "proposed",
+            "citation": "Research doc 4.3; association [19] Jones et al. 2022, 7 h target proposed"
+          },
+          "baseline_mean": 6.657785714285714,
+          "baseline_sd": 1.0358919737688297,
+          "z": -2.7288421822607356,
+          "response": {
+            "system": "Reassess fitness for safety-critical tasks; arrange medical and behavioural-health evaluation.",
+            "crew": "Protect an 8-hour sleep opportunity each night and keep a consistent light-dark schedule. Report persistent sleep difficulty."
+          }
+        },
+        "sleep_efficiency_pct": {
+          "system": "neurocognitive",
+          "band": "red",
+          "value": 66.463,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "below",
+            "amber": 85,
+            "red": 75,
+            "basis": "proposed",
+            "citation": "Research doc 4.3"
+          },
+          "baseline_mean": 82.98,
+          "baseline_sd": 9.077254506986975,
+          "z": -1.8196030514828563,
+          "response": {
+            "system": "Reassess fitness for safety-critical tasks; arrange medical and behavioural-health evaluation.",
+            "crew": "Protect an 8-hour sleep opportunity each night and keep a consistent light-dark schedule. Report persistent sleep difficulty."
+          }
+        },
+        "reaction_lapses_pct": {
+          "system": "neurocognitive",
+          "band": "red",
+          "value": 19.44,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "above",
+            "amber": 20,
+            "red": 40,
+            "basis": "proposed",
+            "citation": "Research doc 4.3; personal baseline [21] Basner et al. 2011"
+          },
+          "baseline_mean": 2.6887857142857143,
+          "baseline_sd": 1.6023742086028483,
+          "z": 10.453996448382744,
+          "response": {
+            "system": "Reassess fitness for safety-critical tasks; arrange medical and behavioural-health evaluation.",
+            "crew": "Protect an 8-hour sleep opportunity each night and keep a consistent light-dark schedule. Report persistent sleep difficulty."
+          }
+        },
+        "mood_score": {
+          "system": "neurocognitive",
+          "band": "green",
+          "value": 5.096,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "below",
+            "amber": 20,
+            "red": 40,
+            "basis": "proposed",
+            "citation": "Team choice 2026-11-13; research doc 4.3 gives no number ('persistent deterioration')"
+          },
+          "baseline_mean": 5.362571428571429,
+          "baseline_sd": 0.6744433276397671,
+          "z": -0.3952465947054483
+        },
+        "cabin_co2_mmhg": {
+          "system": "environment",
+          "band": "green",
+          "value": 1.239,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "above",
+            "amber": 2.5,
+            "red": 3,
+            "basis": "published",
+            "citation": "Research doc 4.6; [30] NASA OCHMO-TB-004"
+          },
+          "baseline_mean": 1.7849285714285714,
+          "baseline_sd": 0.5807740808326701,
+          "z": -0.9400016106880322
+        },
+        "exercise_completion_pct": {
+          "system": "bone_muscle",
+          "band": "green",
+          "value": 95.329,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "below",
+            "amber": 90,
+            "red": 75,
+            "basis": "proposed",
+            "citation": "Research doc 4.2"
+          },
+          "baseline_mean": 99.00242857142857,
+          "baseline_sd": 1.4746414799894585,
+          "z": -2.491065537811152
+        },
+        "dose_mgy": {
+          "system": "radiation",
+          "band": "green",
+          "value": 0.299,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "above",
+            "amber": 30,
+            "basis": "proposed",
+            "citation": "Team choice 2026-11-13: daily spike; the 10 Sep 2017 solar event added +51% on the ISS (Berger et al. 2018)"
+          },
+          "baseline_mean": 0.3082857142857143,
+          "baseline_sd": 0.015364437316932053,
+          "z": -0.6043640970490446
+        },
+        "lymphocytes_per_ul": {
+          "system": "immune",
+          "band": "green",
+          "value": 2863.108,
+          "ts": "2026-12-19T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": [
+            {
+              "kind": "pct",
+              "direction": "below",
+              "amber": 20,
+              "red": 40,
+              "basis": "proposed",
+              "citation": "Research doc 4.1"
+            },
+            {
+              "kind": "abs",
+              "direction": "below",
+              "red": 1000,
+              "basis": "published",
+              "citation": "Research doc 4.1; [9] Merck Manual (lymphocytopenia)"
+            }
+          ],
+          "baseline_mean": 2354.732,
+          "baseline_sd": 56.23249989700501,
+          "z": 9.04060820577313
+        },
+        "il6_pg_ml": {
+          "system": "immune",
+          "band": "unknown",
+          "value": 3.206,
+          "ts": "2026-12-19T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": null,
+          "baseline_mean": 3.46175,
+          "baseline_sd": 0.3640177422415928,
+          "z": -0.70257564487135
+        },
+        "nk_activity_pct": {
+          "system": "immune",
+          "band": "green",
+          "value": 87.936,
+          "ts": "2026-12-19T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "below",
+            "amber": 20,
+            "red": 40,
+            "basis": "proposed",
+            "citation": "Research doc 4.1; ~50% fall at flight day 90 [1] Bigley et al. 2019"
+          },
+          "baseline_mean": 109.11800000000001,
+          "baseline_sd": 25.847484145786158,
+          "z": -0.8194994870885043
+        },
+        "viral_pcr_positive": {
+          "system": "immune",
+          "band": "green",
+          "value": 0.0,
+          "ts": "2026-12-19T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "above",
+            "amber": 0.5,
+            "basis": "published",
+            "citation": "Research doc 4.1; [3, 4, 5] Mehta 2013, 2017, Rooney 2019. An isolated positive is not disease"
+          },
+          "baseline_mean": 0.0,
+          "baseline_sd": 0.0,
+          "z": null
+        },
+        "cumulative_dose_msv": {
+          "system": "radiation",
+          "band": "green",
+          "value": 23.03,
+          "pct_of_limit": 3.84,
+          "limit_msv": 600,
+          "provenance": "derived"
+        }
+      },
+      "alerts": [
+        {
+          "id": "sleep_loss_impairment",
+          "name": "Sleep-loss-related neurobehavioral impairment",
+          "signals": [
+            "sleep_duration_h",
+            "reaction_lapses_pct",
+            "mood_score"
+          ],
+          "not_measured": [],
+          "response_system": "Review schedule and workload; reassess fitness for safety-critical tasks.",
+          "response_crew": "Protect an 8-hour sleep opportunity each night and keep a consistent light-dark schedule. Report persistent sleep difficulty, mood change or errors you notice in your own work.",
+          "basis": "proposed",
+          "citation": "Research doc 4.3; [19] Jones et al. 2022",
+          "alert_id": 4,
+          "level": "red",
+          "fired": {
+            "sleep_duration_h": {
+              "band": "red",
+              "value": 4.824,
+              "ts": "2026-12-10T10:00:00+00:00",
+              "provenance": "simulated"
+            },
+            "reaction_lapses_pct": {
+              "band": "red",
+              "value": 8.151,
+              "ts": "2026-12-10T10:00:00+00:00",
+              "provenance": "simulated"
+            },
+            "mood_score": {
+              "band": "amber",
+              "value": 4.027,
+              "ts": "2026-12-10T10:00:00+00:00",
+              "provenance": "simulated"
+            }
+          },
+          "started_ts": "2026-12-10T10:00:00+00:00",
+          "last_ts": "2026-12-10T10:00:00+00:00",
+          "active": false,
+          "acknowledged_at": null,
+          "action": "Contact the ground"
+        },
+        {
+          "id": "sleep_loss_impairment",
+          "name": "Sleep-loss-related neurobehavioral impairment",
+          "signals": [
+            "sleep_duration_h",
+            "reaction_lapses_pct",
+            "mood_score"
+          ],
+          "not_measured": [],
+          "response_system": "Review schedule and workload; reassess fitness for safety-critical tasks.",
+          "response_crew": "Protect an 8-hour sleep opportunity each night and keep a consistent light-dark schedule. Report persistent sleep difficulty, mood change or errors you notice in your own work.",
+          "basis": "proposed",
+          "citation": "Research doc 4.3; [19] Jones et al. 2022",
+          "alert_id": 7,
+          "level": "red",
+          "fired": {
+            "sleep_duration_h": {
+              "band": "amber",
+              "value": 5.04,
+              "ts": "2026-12-17T10:00:00+00:00",
+              "provenance": "simulated"
+            },
+            "reaction_lapses_pct": {
+              "band": "red",
+              "value": 15.283,
+              "ts": "2026-12-17T10:00:00+00:00",
+              "provenance": "simulated"
+            },
+            "mood_score": {
+              "band": "amber",
+              "value": 4.287,
+              "ts": "2026-12-17T10:00:00+00:00",
+              "provenance": "simulated"
+            }
+          },
+          "started_ts": "2026-12-17T10:00:00+00:00",
+          "last_ts": "2026-12-17T10:00:00+00:00",
+          "active": false,
+          "acknowledged_at": null,
+          "action": "Contact the ground"
+        }
+      ],
+      "immune_risk": {
+        "score": 26.4,
+        "inputs": {
+          "nk_activity_pct": 0.82,
+          "lymphocytes_per_ul": 0.0,
+          "rmssd_ms": 0.41,
+          "sleep_duration_h": 2.73,
+          "dose_mgy": 0.0
+        },
+        "not_measured": [
+          "T-cell function",
+          "salivary sIgA",
+          "microbiome change"
+        ],
+        "label": "research concept, not validated on crew data; placeholder weights"
+      },
+      "anomaly": {
+        "crew_id": "demo_sleep_debt",
+        "score": 3.811,
+        "anomalous": true,
+        "detector": "ewma",
+        "scores": {
+          "2d": 0.475,
+          "ewma": 3.811
+        },
+        "contributions": {
+          "resting_hr_bpm": 0.0,
+          "rmssd_ms": 0.011,
+          "bp_systolic_mmhg": 0.0,
+          "sleep_duration_h": 0.226,
+          "sleep_efficiency_pct": 0.019,
+          "reaction_lapses_pct": 0.74,
+          "mood_score": 0.001,
+          "cabin_co2_mmhg": 0.0,
+          "exercise_completion_pct": 0.002,
+          "dose_mgy": 0.0
+        },
+        "drift": {
+          "resting_hr_bpm": 0.0,
+          "rmssd_ms": -0.747,
+          "bp_systolic_mmhg": -0.094,
+          "sleep_duration_h": -1.956,
+          "sleep_efficiency_pct": -0.574,
+          "reaction_lapses_pct": 7.213,
+          "mood_score": -0.237,
+          "cabin_co2_mmhg": 0.0,
+          "exercise_completion_pct": -0.346,
+          "dose_mgy": 0.093
+        },
+        "model_version": "8d30c5cab8db",
+        "label": "research concept, not validated on crew data",
+        "available": true
+      },
+      "disclaimer": "Not a medical device. Research concept; all crew data is simulated."
+    },
+    "sensor_loss": {
+      "crew_id": "demo_sensor_loss",
+      "ts": "2026-12-23T10:00:00+00:00",
+      "baseline_ready": true,
+      "mission": {
+        "name": "station",
+        "alert_wording": "Contact the ground",
+        "one_way_delay_s": 0,
+        "dose_mgy_day": 0.285,
+        "quality_factor": 1.85
+      },
+      "systems": {
+        "cardiovascular": "stale",
+        "neurocognitive": "red",
+        "environment": "green",
+        "bone_muscle": "green",
+        "radiation": "green",
+        "immune": "green"
+      },
+      "signals": {
+        "resting_hr_bpm": {
+          "system": "cardiovascular",
+          "band": "stale",
+          "value": 58.12,
+          "ts": "2026-12-04T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "delta",
+            "direction": "above",
+            "amber": 10,
+            "basis": "proposed",
+            "citation": "Research doc 4.4"
+          },
+          "baseline_mean": 61.180142857142854,
+          "baseline_sd": 3.5693235699853196,
+          "z": -0.8573453196778804
+        },
+        "rmssd_ms": {
+          "system": "cardiovascular",
+          "band": "stale",
+          "value": 83.925,
+          "ts": "2026-12-04T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "below",
+            "amber": 20,
+            "red": 35,
+            "basis": "proposed",
+            "citation": "Research doc 4.4; measurement standard [26] Task Force ESC/NASPE 1996"
+          },
+          "baseline_mean": 75.405,
+          "baseline_sd": 30.609380354595675,
+          "z": 0.2783460462544387
+        },
+        "bp_systolic_mmhg": {
+          "system": "cardiovascular",
+          "band": "green",
+          "value": 112.275,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "above",
+            "red": 180,
+            "basis": "published",
+            "citation": "Research doc 4.4; [27] Whelton et al. 2018 (conventional severe hypertension)"
+          },
+          "baseline_mean": 121.13521428571428,
+          "baseline_sd": 7.2639835667656705,
+          "z": -1.2197459154852326
+        },
+        "sleep_duration_h": {
+          "system": "neurocognitive",
+          "band": "amber",
+          "value": 6.231,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "below",
+            "amber": 7,
+            "red": 5,
+            "basis": "proposed",
+            "citation": "Research doc 4.3; association [19] Jones et al. 2022, 7 h target proposed"
+          },
+          "baseline_mean": 6.657785714285714,
+          "baseline_sd": 1.0358919737688297,
+          "z": -0.41199828272919475,
+          "response": {
+            "system": "Adjust workload and circadian lighting; review the sleep environment and schedule.",
+            "crew": "Protect an 8-hour sleep opportunity each night and keep a consistent light-dark schedule. Report persistent sleep difficulty."
+          }
+        },
+        "sleep_efficiency_pct": {
+          "system": "neurocognitive",
+          "band": "red",
+          "value": 74.463,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "below",
+            "amber": 85,
+            "red": 75,
+            "basis": "proposed",
+            "citation": "Research doc 4.3"
+          },
+          "baseline_mean": 82.98,
+          "baseline_sd": 9.077254506986975,
+          "z": -0.938279299478083,
+          "response": {
+            "system": "Reassess fitness for safety-critical tasks; arrange medical and behavioural-health evaluation.",
+            "crew": "Protect an 8-hour sleep opportunity each night and keep a consistent light-dark schedule. Report persistent sleep difficulty."
+          }
+        },
+        "reaction_lapses_pct": {
+          "system": "neurocognitive",
+          "band": "green",
+          "value": 1.674,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "above",
+            "amber": 20,
+            "red": 40,
+            "basis": "proposed",
+            "citation": "Research doc 4.3; personal baseline [21] Basner et al. 2011"
+          },
+          "baseline_mean": 2.6887857142857143,
+          "baseline_sd": 1.6023742086028483,
+          "z": -0.6333013280153407
+        },
+        "mood_score": {
+          "system": "neurocognitive",
+          "band": "green",
+          "value": 5.816,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "below",
+            "amber": 20,
+            "red": 40,
+            "basis": "proposed",
+            "citation": "Team choice 2026-11-13; research doc 4.3 gives no number ('persistent deterioration')"
+          },
+          "baseline_mean": 5.362571428571429,
+          "baseline_sd": 0.6744433276397671,
+          "z": 0.6723004778108733
+        },
+        "cabin_co2_mmhg": {
+          "system": "environment",
+          "band": "green",
+          "value": 1.239,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "above",
+            "amber": 2.5,
+            "red": 3,
+            "basis": "published",
+            "citation": "Research doc 4.6; [30] NASA OCHMO-TB-004"
+          },
+          "baseline_mean": 1.7849285714285714,
+          "baseline_sd": 0.5807740808326701,
+          "z": -0.9400016106880322
+        },
+        "exercise_completion_pct": {
+          "system": "bone_muscle",
+          "band": "green",
+          "value": 95.329,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "below",
+            "amber": 90,
+            "red": 75,
+            "basis": "proposed",
+            "citation": "Research doc 4.2"
+          },
+          "baseline_mean": 99.00242857142857,
+          "baseline_sd": 1.4746414799894585,
+          "z": -2.491065537811152
+        },
+        "dose_mgy": {
+          "system": "radiation",
+          "band": "green",
+          "value": 0.299,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "above",
+            "amber": 30,
+            "basis": "proposed",
+            "citation": "Team choice 2026-11-13: daily spike; the 10 Sep 2017 solar event added +51% on the ISS (Berger et al. 2018)"
+          },
+          "baseline_mean": 0.3082857142857143,
+          "baseline_sd": 0.015364437316932053,
+          "z": -0.6043640970490446
+        },
+        "lymphocytes_per_ul": {
+          "system": "immune",
+          "band": "green",
+          "value": 2863.108,
+          "ts": "2026-12-19T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": [
+            {
+              "kind": "pct",
+              "direction": "below",
+              "amber": 20,
+              "red": 40,
+              "basis": "proposed",
+              "citation": "Research doc 4.1"
+            },
+            {
+              "kind": "abs",
+              "direction": "below",
+              "red": 1000,
+              "basis": "published",
+              "citation": "Research doc 4.1; [9] Merck Manual (lymphocytopenia)"
+            }
+          ],
+          "baseline_mean": 2354.732,
+          "baseline_sd": 56.23249989700501,
+          "z": 9.04060820577313
+        },
+        "il6_pg_ml": {
+          "system": "immune",
+          "band": "unknown",
+          "value": 3.206,
+          "ts": "2026-12-19T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": null,
+          "baseline_mean": 3.46175,
+          "baseline_sd": 0.3640177422415928,
+          "z": -0.70257564487135
+        },
+        "nk_activity_pct": {
+          "system": "immune",
+          "band": "green",
+          "value": 87.936,
+          "ts": "2026-12-19T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "below",
+            "amber": 20,
+            "red": 40,
+            "basis": "proposed",
+            "citation": "Research doc 4.1; ~50% fall at flight day 90 [1] Bigley et al. 2019"
+          },
+          "baseline_mean": 109.11800000000001,
+          "baseline_sd": 25.847484145786158,
+          "z": -0.8194994870885043
+        },
+        "viral_pcr_positive": {
+          "system": "immune",
+          "band": "green",
+          "value": 0.0,
+          "ts": "2026-12-19T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "above",
+            "amber": 0.5,
+            "basis": "published",
+            "citation": "Research doc 4.1; [3, 4, 5] Mehta 2013, 2017, Rooney 2019. An isolated positive is not disease"
+          },
+          "baseline_mean": 0.0,
+          "baseline_sd": 0.0,
+          "z": null
+        },
+        "cumulative_dose_msv": {
+          "system": "radiation",
+          "band": "green",
+          "value": 23.03,
+          "pct_of_limit": 3.84,
+          "limit_msv": 600,
+          "provenance": "derived"
+        }
+      },
+      "alerts": [],
+      "immune_risk": {
+        "score": 8.2,
+        "inputs": {
+          "nk_activity_pct": 0.82,
+          "lymphocytes_per_ul": 0.0,
+          "rmssd_ms": 0.0,
+          "sleep_duration_h": 0.41,
+          "dose_mgy": 0.0
+        },
+        "not_measured": [
+          "T-cell function",
+          "salivary sIgA",
+          "microbiome change"
+        ],
+        "label": "research concept, not validated on crew data; placeholder weights"
+      },
+      "anomaly": {
+        "crew_id": "demo_sensor_loss",
+        "score": 0.088,
+        "anomalous": false,
+        "detector": "2d",
+        "scores": {
+          "2d": 0.088,
+          "ewma": 0.048
+        },
+        "contributions": {
+          "resting_hr_bpm": 0.22,
+          "rmssd_ms": 0.012,
+          "bp_systolic_mmhg": 0.148,
+          "sleep_duration_h": 0.042,
+          "sleep_efficiency_pct": 0.019,
+          "reaction_lapses_pct": 0.403,
+          "mood_score": 0.028,
+          "cabin_co2_mmhg": 0.003,
+          "exercise_completion_pct": 0.018,
+          "dose_mgy": 0.109
+        },
+        "drift": {
+          "resting_hr_bpm": 0.0,
+          "rmssd_ms": 0.0,
+          "bp_systolic_mmhg": -0.094,
+          "sleep_duration_h": 0.0,
+          "sleep_efficiency_pct": 0.0,
+          "reaction_lapses_pct": 0.842,
+          "mood_score": 0.0,
+          "cabin_co2_mmhg": 0.0,
+          "exercise_completion_pct": -0.346,
+          "dose_mgy": 0.093
+        },
+        "model_version": "8d30c5cab8db",
+        "label": "research concept, not validated on crew data",
+        "available": true
+      },
+      "disclaimer": "Not a medical device. Research concept; all crew data is simulated."
+    },
+    "normal": {
+      "crew_id": "demo_normal",
+      "ts": "2026-12-23T10:00:00+00:00",
+      "baseline_ready": true,
+      "mission": {
+        "name": "station",
+        "alert_wording": "Contact the ground",
+        "one_way_delay_s": 0,
+        "dose_mgy_day": 0.285,
+        "quality_factor": 1.85
+      },
+      "systems": {
+        "cardiovascular": "green",
+        "neurocognitive": "red",
+        "environment": "green",
+        "bone_muscle": "green",
+        "radiation": "green",
+        "immune": "green"
+      },
+      "signals": {
+        "resting_hr_bpm": {
+          "system": "cardiovascular",
+          "band": "green",
+          "value": 59.041,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "delta",
+            "direction": "above",
+            "amber": 10,
+            "basis": "proposed",
+            "citation": "Research doc 4.4"
+          },
+          "baseline_mean": 61.180142857142854,
+          "baseline_sd": 3.5693235699853196,
+          "z": -0.599313235463171
+        },
+        "rmssd_ms": {
+          "system": "cardiovascular",
+          "band": "green",
+          "value": 83.975,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "below",
+            "amber": 20,
+            "red": 35,
+            "basis": "proposed",
+            "citation": "Research doc 4.4; measurement standard [26] Task Force ESC/NASPE 1996"
+          },
+          "baseline_mean": 75.405,
+          "baseline_sd": 30.609380354595675,
+          "z": 0.27997953244137785
+        },
+        "bp_systolic_mmhg": {
+          "system": "cardiovascular",
+          "band": "green",
+          "value": 112.275,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "above",
+            "red": 180,
+            "basis": "published",
+            "citation": "Research doc 4.4; [27] Whelton et al. 2018 (conventional severe hypertension)"
+          },
+          "baseline_mean": 121.13521428571428,
+          "baseline_sd": 7.2639835667656705,
+          "z": -1.2197459154852326
+        },
+        "sleep_duration_h": {
+          "system": "neurocognitive",
+          "band": "amber",
+          "value": 6.231,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "below",
+            "amber": 7,
+            "red": 5,
+            "basis": "proposed",
+            "citation": "Research doc 4.3; association [19] Jones et al. 2022, 7 h target proposed"
+          },
+          "baseline_mean": 6.657785714285714,
+          "baseline_sd": 1.0358919737688297,
+          "z": -0.41199828272919475,
+          "response": {
+            "system": "Adjust workload and circadian lighting; review the sleep environment and schedule.",
+            "crew": "Protect an 8-hour sleep opportunity each night and keep a consistent light-dark schedule. Report persistent sleep difficulty."
+          }
+        },
+        "sleep_efficiency_pct": {
+          "system": "neurocognitive",
+          "band": "red",
+          "value": 74.463,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "below",
+            "amber": 85,
+            "red": 75,
+            "basis": "proposed",
+            "citation": "Research doc 4.3"
+          },
+          "baseline_mean": 82.98,
+          "baseline_sd": 9.077254506986975,
+          "z": -0.938279299478083,
+          "response": {
+            "system": "Reassess fitness for safety-critical tasks; arrange medical and behavioural-health evaluation.",
+            "crew": "Protect an 8-hour sleep opportunity each night and keep a consistent light-dark schedule. Report persistent sleep difficulty."
+          }
+        },
+        "reaction_lapses_pct": {
+          "system": "neurocognitive",
+          "band": "green",
+          "value": 1.674,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "above",
+            "amber": 20,
+            "red": 40,
+            "basis": "proposed",
+            "citation": "Research doc 4.3; personal baseline [21] Basner et al. 2011"
+          },
+          "baseline_mean": 2.6887857142857143,
+          "baseline_sd": 1.6023742086028483,
+          "z": -0.6333013280153407
+        },
+        "mood_score": {
+          "system": "neurocognitive",
+          "band": "green",
+          "value": 5.816,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "below",
+            "amber": 20,
+            "red": 40,
+            "basis": "proposed",
+            "citation": "Team choice 2026-11-13; research doc 4.3 gives no number ('persistent deterioration')"
+          },
+          "baseline_mean": 5.362571428571429,
+          "baseline_sd": 0.6744433276397671,
+          "z": 0.6723004778108733
+        },
+        "cabin_co2_mmhg": {
+          "system": "environment",
+          "band": "green",
+          "value": 1.239,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "above",
+            "amber": 2.5,
+            "red": 3,
+            "basis": "published",
+            "citation": "Research doc 4.6; [30] NASA OCHMO-TB-004"
+          },
+          "baseline_mean": 1.7849285714285714,
+          "baseline_sd": 0.5807740808326701,
+          "z": -0.9400016106880322
+        },
+        "exercise_completion_pct": {
+          "system": "bone_muscle",
+          "band": "green",
+          "value": 95.329,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "below",
+            "amber": 90,
+            "red": 75,
+            "basis": "proposed",
+            "citation": "Research doc 4.2"
+          },
+          "baseline_mean": 99.00242857142857,
+          "baseline_sd": 1.4746414799894585,
+          "z": -2.491065537811152
+        },
+        "dose_mgy": {
+          "system": "radiation",
+          "band": "green",
+          "value": 0.299,
+          "ts": "2026-12-23T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "above",
+            "amber": 30,
+            "basis": "proposed",
+            "citation": "Team choice 2026-11-13: daily spike; the 10 Sep 2017 solar event added +51% on the ISS (Berger et al. 2018)"
+          },
+          "baseline_mean": 0.3082857142857143,
+          "baseline_sd": 0.015364437316932053,
+          "z": -0.6043640970490446
+        },
+        "lymphocytes_per_ul": {
+          "system": "immune",
+          "band": "green",
+          "value": 2863.108,
+          "ts": "2026-12-19T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": [
+            {
+              "kind": "pct",
+              "direction": "below",
+              "amber": 20,
+              "red": 40,
+              "basis": "proposed",
+              "citation": "Research doc 4.1"
+            },
+            {
+              "kind": "abs",
+              "direction": "below",
+              "red": 1000,
+              "basis": "published",
+              "citation": "Research doc 4.1; [9] Merck Manual (lymphocytopenia)"
+            }
+          ],
+          "baseline_mean": 2354.732,
+          "baseline_sd": 56.23249989700501,
+          "z": 9.04060820577313
+        },
+        "il6_pg_ml": {
+          "system": "immune",
+          "band": "unknown",
+          "value": 3.206,
+          "ts": "2026-12-19T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": null,
+          "baseline_mean": 3.46175,
+          "baseline_sd": 0.3640177422415928,
+          "z": -0.70257564487135
+        },
+        "nk_activity_pct": {
+          "system": "immune",
+          "band": "green",
+          "value": 87.936,
+          "ts": "2026-12-19T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "pct",
+            "direction": "below",
+            "amber": 20,
+            "red": 40,
+            "basis": "proposed",
+            "citation": "Research doc 4.1; ~50% fall at flight day 90 [1] Bigley et al. 2019"
+          },
+          "baseline_mean": 109.11800000000001,
+          "baseline_sd": 25.847484145786158,
+          "z": -0.8194994870885043
+        },
+        "viral_pcr_positive": {
+          "system": "immune",
+          "band": "green",
+          "value": 0.0,
+          "ts": "2026-12-19T10:00:00+00:00",
+          "provenance": "simulated",
+          "rule": {
+            "kind": "abs",
+            "direction": "above",
+            "amber": 0.5,
+            "basis": "published",
+            "citation": "Research doc 4.1; [3, 4, 5] Mehta 2013, 2017, Rooney 2019. An isolated positive is not disease"
+          },
+          "baseline_mean": 0.0,
+          "baseline_sd": 0.0,
+          "z": null
+        },
+        "cumulative_dose_msv": {
+          "system": "radiation",
+          "band": "green",
+          "value": 23.03,
+          "pct_of_limit": 3.84,
+          "limit_msv": 600,
+          "provenance": "derived"
+        }
+      },
+      "alerts": [],
+      "immune_risk": {
+        "score": 8.2,
+        "inputs": {
+          "nk_activity_pct": 0.82,
+          "lymphocytes_per_ul": 0.0,
+          "rmssd_ms": 0.0,
+          "sleep_duration_h": 0.41,
+          "dose_mgy": 0.0
+        },
+        "not_measured": [
+          "T-cell function",
+          "salivary sIgA",
+          "microbiome change"
+        ],
+        "label": "research concept, not validated on crew data; placeholder weights"
+      },
+      "anomaly": {
+        "crew_id": "demo_normal",
+        "score": 0.074,
+        "anomalous": false,
+        "detector": "2d",
+        "scores": {
+          "2d": 0.074,
+          "ewma": 0.049
+        },
+        "contributions": {
+          "resting_hr_bpm": 0.293,
+          "rmssd_ms": 0.025,
+          "bp_systolic_mmhg": 0.14,
+          "sleep_duration_h": 0.039,
+          "sleep_efficiency_pct": 0.015,
+          "reaction_lapses_pct": 0.345,
+          "mood_score": 0.027,
+          "cabin_co2_mmhg": 0.003,
+          "exercise_completion_pct": 0.016,
+          "dose_mgy": 0.098
+        },
+        "drift": {
+          "resting_hr_bpm": 0.0,
+          "rmssd_ms": -0.153,
+          "bp_systolic_mmhg": -0.094,
+          "sleep_duration_h": 0.0,
+          "sleep_efficiency_pct": 0.0,
+          "reaction_lapses_pct": 0.842,
+          "mood_score": 0.0,
+          "cabin_co2_mmhg": 0.0,
+          "exercise_completion_pct": -0.346,
+          "dose_mgy": 0.093
+        },
+        "model_version": "8d30c5cab8db",
+        "label": "research concept, not validated on crew data",
+        "available": true
+      },
+      "disclaimer": "Not a medical device. Research concept; all crew data is simulated."
+    }
+  },
+  "timeline_days": {
+    "co2_creep": 40,
+    "sleep_debt": 40,
+    "sensor_loss": 40,
+    "normal": 40
+  },
+  "existing_crew_unchanged": [
+    "cm2"
+  ],
+  "existing_game_count": 7,
+  "mission_unchanged": true,
+  "health": {
+    "status": "ok",
+    "mqtt_connected": true,
+    "readings": 2082,
+    "rejects": 0
+  },
+  "final_cards": [
+    {
+      "name": "normal",
+      "title": "Nominal flight day",
+      "story": "A seed-12 simulated crew member follows ordinary day-to-day variation with no injected scenario effect.",
+      "expected_events": [
+        "Mission days 1\u201314: daily-signal baselines are established; weekly lab baselines need 28 days.",
+        "Mission day 22 onward: normal variation continues; no exact alert is guaranteed."
+      ],
+      "watch_signals": [
+        "cabin_co2_mmhg",
+        "sleep_duration_h",
+        "resting_hr_bpm"
+      ],
+      "scenario": "normal",
+      "source": "generator.sim.SCENARIOS['normal'] (seed 12)",
+      "crew_id": "demo_normal",
+      "days": 40,
+      "onset_day": 22,
+      "onset_index": 21,
+      "provenance": "simulated",
+      "simulated": true,
+      "label": "simulated",
+      "state": "completed",
+      "status": "completed",
+      "completed_days": 40,
+      "speed": 1.0,
+      "progress": {
+        "day": 40,
+        "days": 40,
+        "fraction": 1.0
+      },
+      "error": null
+    },
+    {
+      "name": "co2_creep",
+      "title": "Cabin CO\u2082 creep",
+      "story": "Cabin CO\u2082 and related performance signals gradually move from this simulated crew member\u2019s own baseline.",
+      "expected_events": [
+        "Mission day 22: the approved co2_creep effects begin at the existing scenario onset.",
+        "Mission days 22\u201329: CO\u2082 and linked performance effects ramp over eight days; a rule alert is possible, not guaranteed."
+      ],
+      "watch_signals": [
+        "cabin_co2_mmhg",
+        "reaction_lapses_pct",
+        "mood_score"
+      ],
+      "scenario": "co2_creep",
+      "source": "generator.sim.SCENARIOS['co2_creep'] (seed 12)",
+      "crew_id": "demo_co2_creep",
+      "days": 40,
+      "onset_day": 22,
+      "onset_index": 21,
+      "provenance": "simulated",
+      "simulated": true,
+      "label": "simulated",
+      "state": "completed",
+      "status": "completed",
+      "completed_days": 40,
+      "speed": 0.1,
+      "progress": {
+        "day": 40,
+        "days": 40,
+        "fraction": 1.0
+      },
+      "error": null
+    },
+    {
+      "name": "sleep_debt",
+      "title": "Accumulating sleep debt",
+      "story": "Sleep duration, efficiency, reaction lapses, and mood follow the existing simulated sleep-debt effects.",
+      "expected_events": [
+        "Mission day 22: the approved sleep_debt effects begin at the existing scenario onset.",
+        "Mission days 22\u201326: sleep effects ramp over five days; downstream impairment alerts are possible, not guaranteed."
+      ],
+      "watch_signals": [
+        "sleep_duration_h",
+        "sleep_efficiency_pct",
+        "reaction_lapses_pct",
+        "mood_score"
+      ],
+      "scenario": "sleep_debt",
+      "source": "generator.sim.SCENARIOS['sleep_debt'] (seed 12)",
+      "crew_id": "demo_sleep_debt",
+      "days": 40,
+      "onset_day": 22,
+      "onset_index": 21,
+      "provenance": "simulated",
+      "simulated": true,
+      "label": "simulated",
+      "state": "completed",
+      "status": "completed",
+      "completed_days": 40,
+      "speed": 0.1,
+      "progress": {
+        "day": 40,
+        "days": 40,
+        "fraction": 1.0
+      },
+      "error": null
+    },
+    {
+      "name": "sensor_loss",
+      "title": "Sensor dropout",
+      "story": "Two simulated sensors stop publishing at the existing sensor-loss onset so the core\u2019s stale-data handling is visible.",
+      "expected_events": [
+        "Mission day 22: resting_hr_bpm and rmssd_ms readings stop in the generated stream.",
+        "After the configured stale interval: the core may mark those signals stale; exact status timing is governed by contract thresholds."
+      ],
+      "watch_signals": [
+        "resting_hr_bpm",
+        "rmssd_ms"
+      ],
+      "scenario": "sensor_loss",
+      "source": "generator.sim.SCENARIOS['sensor_loss'] (seed 12)",
+      "crew_id": "demo_sensor_loss",
+      "days": 40,
+      "onset_day": 22,
+      "onset_index": 21,
+      "provenance": "simulated",
+      "simulated": true,
+      "label": "simulated",
+      "state": "completed",
+      "status": "completed",
+      "completed_days": 40,
+      "speed": 0.1,
+      "progress": {
+        "day": 40,
+        "days": 40,
+        "fraction": 1.0
+      },
+      "error": null
+    }
+  ],
+  "all_four_completed": true,
+  "original_records_still_unchanged": true
+}

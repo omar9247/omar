@@ -1,0 +1,75 @@
+{
+  "cacheControl": "no-store",
+  "csp": "default-src 'self' blob: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; connect-src 'self' blob:; img-src 'self' data: blob:; font-src 'self' data:; worker-src 'self' blob:; media-src 'self' blob: data:; frame-src 'self' blob:; object-src 'none'; base-uri 'self'",
+  "health": {
+    "mqtt_connected": true,
+    "readings": 424,
+    "rejects": 0,
+    "status": "ok"
+  },
+  "publicFetchBlocked": true,
+  "requests": [
+    {
+      "body": "{\"session_id\":\"513595d9-8a41-4c6b-be31-24355fa3bf5f\",\"crew_id\":\"cm2\",\"ts\":\"2026-12-23T10:00:00+00:00\",\"game_id\":\"speed_click\",\"difficulty\":\"normal\",\"result\":{\"score\":0,\"accuracy\":0,\"mistakes\":42,\"hits\":0,\"avg_reaction_ms\":null,\"duration\":25.015999999999522,\"stats\":[[\"Targets hit\",\"0\"],[\"Expired targets\",\"42\"],[\"Empty clicks\",\"0\"],[\"Median time-to-hit\",\"\u2014\"],[\"Hit-time variability (\u00b1)\",\"\u2014\"],[\"Accuracy\",\"0.0%\"],[\"Best combo\",\"x0\"],[\"Difficulty\",\"NORMAL\"]],\"extra\":{\"best_combo\":0,\"expired\":42,\"empty_clicks\":0,\"hit_times\":[],\"avg_hit_ms\":null,\"median_hit_ms\":null,\"std_hit_ms\":0,\"difficulty\":\"normal\",\"duration_s\":25,\"target_radius\":[33,43],\"max_targets\":5}}}",
+      "method": "POST",
+      "response": "{\"saved\":\"513595d9-8a41-4c6b-be31-24355fa3bf5f\",\"created\":true,\"label\":\"Demo game performance, not a validated health measurement. Not used for health alerts or model scoring.\"}",
+      "status": 200,
+      "url": "/game-sessions"
+    }
+  ],
+  "resources": [
+    {
+      "bytes": 69505,
+      "url": "http://127.0.0.1:8008/lunar-arcade-hub/runtime/pythons.js"
+    },
+    {
+      "bytes": 4806,
+      "url": "http://127.0.0.1:8008/lunar-arcade-hub/aura-bridge.js"
+    },
+    {
+      "bytes": 850285,
+      "url": "http://127.0.0.1:8008/lunar-arcade-hub/runtime/cpython312/main.js"
+    },
+    {
+      "bytes": 4335,
+      "url": "http://127.0.0.1:8008/lunar-arcade-hub/runtime/empty.ogg"
+    },
+    {
+      "bytes": 6668909,
+      "url": "http://127.0.0.1:8008/lunar-arcade-hub/runtime/cpython312/main.data"
+    },
+    {
+      "bytes": 13447411,
+      "url": "http://127.0.0.1:8008/lunar-arcade-hub/runtime/cpython312/main.wasm"
+    },
+    {
+      "bytes": 50793,
+      "url": "http://127.0.0.1:8008/lunar-arcade-hub/runtime/cpythonrc.py"
+    },
+    {
+      "bytes": 1726,
+      "url": "http://127.0.0.1:8008/lunar-arcade-hub/runtime/index-0.9.3-cp312.json"
+    },
+    {
+      "bytes": 233410,
+      "url": "http://127.0.0.1:8008/lunar-arcade-hub/lunar_arcade_hub.tar.gz"
+    },
+    {
+      "bytes": 18777,
+      "url": "http://127.0.0.1:8008/lunar-arcade-hub/favicon.png"
+    },
+    {
+      "bytes": 1527590,
+      "url": "http://127.0.0.1:8008/lunar-arcade-hub/runtime/cp312/pygame_ce-2.5.7-cp312-cp312-wasm32_bi_emscripten.whl#"
+    }
+  ],
+  "sameOriginRequiredResources": true,
+  "saveStatus": "Return to AURA-Bio\nSaved for CM2 \u00b7 game performance, not a health measurement.\nRetry sending",
+  "url": "http://127.0.0.1:8008/lunar-arcade-hub/?crew=cm2&ts=2026-12-23T10%3A00%3A00%2B00%3A00&cold=3",
+  "viewport": [
+    1280,
+    1100
+  ],
+  "stored_session_count": 7,
+  "saved_uuid_occurrences": 1
+}

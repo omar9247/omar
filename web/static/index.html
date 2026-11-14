@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AURA-Bio · crew health</title>
+  <link rel="icon" href="data:,">
+  <script src="/static/theme.js"></script>
+  <link rel="stylesheet" href="/static/style.css">
+  <!-- served locally so the demo runs offline (NFR-7) -->
+  <script src="/static/vendor/chart.umd.min.js" defer></script>
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <span class="brand">AURA-Bio</span>
+    <nav class="tabs" aria-label="Views">
+      <a href="#health" data-view="health">My health</a>
+      <a href="#signals" data-view="signals">Signals</a>
+      <a href="#checkin" data-view="checkin">Check-in</a>
+      <a href="#crew" data-view="crew">Crew overview</a>
+      <a href="#reports" data-view="reports">Ground reports</a>
+      <a href="#showcase" data-view="showcase">Showcase</a>
+    </nav>
+    <div class="meta">
+      <span>Crew <b id="m-crew">—</b></span>
+      <button class="meta-btn" id="m-mission" type="button" aria-haspopup="dialog">
+        Mission <b id="m-name">—</b> · ground delay <b class="num" id="m-delay">—</b>
+      </button>
+      <span>Mission day <b class="num" id="m-day">—</b></span>
+      <button id="theme-toggle" type="button" aria-pressed="false">Use light mode</button>
+    </div>
+  </header>
+
+  <!-- NFR-8: one sentence a new viewer can repeat -->
+  <section class="status" id="status" aria-live="polite" aria-atomic="true">
+    <span class="band unknown" id="s-band">Loading</span>
+    <h1 id="s-head">Connecting to the core service…</h1>
+    <div class="status-actions">
+      <button type="button" id="s-review" hidden>Review alerts</button>
+      <a class="button pri" href="#checkin">Start check-in</a>
+    </div>
+    <p class="status-note">Simulated crew data · not a medical device</p>
+  </section>
+
+  <section class="showcase-banner" id="showcase-banner" aria-label="Simulated showcase context" hidden>
+    <p id="showcase-context"></p><a class="button" href="#showcase">Scenario guide</a><button type="button" id="showcase-return" hidden>Return to previous crew</button>
+  </section>
+
+  <main id="main" tabindex="-1">
+    <!-- My health -->
+    <section class="view" id="v-health" aria-label="My health">
+        <section class="card bodymap" aria-labelledby="body-title">
+          <h2 id="body-title">Your body systems</h2>
+          <p class="sub">Select a region or system to inspect its readings.</p>
+          <div class="bodymap-grid">
+            <svg id="figure" viewBox="0 0 278.8 984.46" role="group" aria-label="Interactive body systems" aria-describedby="body-note"></svg>
+            <ul class="systems" id="systems"></ul>
+          </div>
+          <p class="fine" id="body-note">Symbolic regions, not an anatomical or diagnostic map. Habitat surrounds the body; metabolic is not measured.</p>
+          <section id="system-detail" aria-labelledby="system-title" hidden>
+            <div class="card-head"><h3 id="system-title" tabindex="-1"></h3><button id="system-close" type="button">Hide detail</button></div>
+            <div id="system-content"></div>
+          </section>
+          <details class="disclosure"><summary>Show more · research scores</summary>
+            <p class="fine">Scores are research concepts, not validated on crew data.</p>
+            <dl class="scores" id="scores"></dl>
+          </details>
+        </section>
+
+      <section class="card drift-card" aria-labelledby="drift-title">
+        <div class="card-head"><h2 id="drift-title">Drift contributions</h2><button id="drift-toggle" type="button" aria-expanded="false" aria-controls="drift-content">Show drift contributions</button></div>
+        <div id="drift-content" hidden>
+          <p class="sub" id="drift-context">Waiting for model output.</p>
+          <p class="fine">Research concept, not validated on crew data. Shares explain the model score, not medical causes. Slice colors identify parameters, not urgency.</p>
+          <p class="empty" id="drift-empty">Waiting for readings and a personal baseline.</p>
+          <div class="drift-grid" id="drift-grid" hidden>
+            <div class="pie-wrap"><canvas id="drift-chart" role="img" aria-label="Parameter contribution pie chart" aria-describedby="drift-context drift-method"></canvas></div>
+            <ul id="drift-legend" class="drift-legend" aria-label="Each parameter's contribution"></ul>
+          </div>
+          <details class="disclosure"><summary>Show more · what these shares mean</summary><p id="drift-method">The backend returns each parameter’s share of the winning detector’s per-signal terms: EWMA for slow harmful drift, or the 2-day model for change. Rounded shares are normalized only for display. A 0% share is retained in the list, not drawn as a slice. Weekly immune labs and unmeasured metabolic signals are not inputs to this model. Missing inputs are baseline-filled by the backend; this does not mean they were measured or are healthy.</p></details>
+        </div>
+      </section>
+
+      <section class="card timeline" aria-labelledby="tl-title">
+        <div class="card-head">
+          <h2 id="tl-title">Mission timeline · body systems</h2>
+          <div class="seg" role="group" aria-label="Days shown">
+            <button type="button" data-range="baseline" aria-pressed="false">Baseline</button>
+            <button type="button" data-range="all" aria-pressed="true">Whole mission</button>
+            <button type="button" data-range="last7" aria-pressed="false">Last 7 days</button>
+          </div>
+          <div class="legend" aria-hidden="true">
+            <span><i class="sw ok"></i>Within limits</span><span><i class="sw a"></i>Amber</span>
+            <span><i class="sw r"></i>Red</span><span><i class="sw st"></i>Overdue</span>
+          </div>
+        </div>
+        <div class="lanes" id="lanes"></div>
+        <p class="empty" id="tl-empty" hidden>No readings yet. Open the mission panel to replay a scenario.</p>
+      </section>
+
+      <aside class="side">
+        <section class="card alarms" aria-labelledby="alarms-title">
+          <div class="card-head"><h2 id="alarms-title">Alarms to review</h2><button type="button" id="alarms-open">All alerts</button></div>
+          <ul id="alarms"></ul>
+          <p class="fine">Red: higher urgency · Amber: attention. Follow the cited response.</p>
+        </section>
+        <section class="card todo" aria-labelledby="todo-title">
+          <h2 id="todo-title">Next onboard actions</h2>
+          <ol id="todo"></ol>
+          <details class="disclosure"><summary>Show more · action sources</summary><p class="cite" id="todo-cite"></p></details>
+        </section>
+
+      </aside>
+    </section>
+
+    <!-- Signals (FR-10, FR-11) -->
+    <section class="view" id="v-signals" aria-labelledby="sig-title" hidden>
+      <div class="view-head">
+        <h2 id="sig-title">Signals</h2>
+        <p class="sub" id="sig-sub">All values are simulated unless marked otherwise. Bands compare each signal with your own baseline.</p>
+      </div>
+      <div class="card table-wrap">
+        <table class="signals">
+          <thead><tr><th scope="col">Signal</th><th scope="col">Now</th><th scope="col">Your baseline</th>
+            <th scope="col">Limits</th><th scope="col">Band</th><th scope="col">Last 30 days</th></tr></thead>
+          <tbody id="sig-rows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Daily check-in (FR-12) -->
+    <section class="view" id="v-checkin" aria-labelledby="ci-title" hidden>
+      <div class="view-head">
+        <h2 id="ci-title">Daily check-in</h2>
+        <p class="sub">Takes about two minutes. Only what you answer is sent.</p>
+      </div>
+      <div class="checkin">
+        <section class="card pvt-card" aria-labelledby="pvt-title">
+          <h3 id="pvt-title">Reaction test · 90 seconds</h3>
+          <p class="sub">Press the panel or Space as soon as it turns light. A response of 355 ms or slower counts as a lapse.</p>
+          <button type="button" class="pvt" id="pvt" aria-describedby="pvt-state">
+            <span class="pvt-big" id="pvt-big">Start</span>
+            <span id="pvt-state">Press to begin the 90-second test</span>
+          </button>
+          <dl class="pvt-stats">
+            <div><dt>Time left</dt><dd class="num" id="pvt-left">90 s</dd></div>
+            <div><dt>Trials</dt><dd class="num" id="pvt-n">0</dd></div>
+            <div><dt>Mean</dt><dd class="num" id="pvt-mean">—</dd></div>
+            <div><dt>Lapses</dt><dd class="num" id="pvt-lapses">0</dd></div>
+          </dl>
+        </section>
+        <form class="card ci-form" id="ci-form">
+          <h3>How are you today?</h3>
+          <label class="field" for="ci-mood">
+            <span>Mood <small>0 = worst, 10 = best</small></span>
+            <output id="ci-mood-out" for="ci-mood">Not answered</output>
+          </label>
+          <input type="range" id="ci-mood" min="0" max="10" step="0.5" value="5">
+          <label class="field" for="ci-ex">
+            <span>Exercise done today <small>minutes</small></span>
+            <output id="ci-ex-out" for="ci-ex">Not answered</output>
+          </label>
+          <input type="range" id="ci-ex" min="0" max="150" step="5" value="0">
+          <p class="result" id="ci-result" role="status"></p>
+          <button type="submit" class="pri" id="ci-send">Send check-in</button>
+        </form>
+      </div>
+      <section class="games-checkin" aria-labelledby="ci-games-title">
+        <div class="card-head">
+          <div class="view-head">
+            <h2 id="ci-games-title">Lunar Arcade Hub</h2>
+            <p class="sub" id="ci-game-context">Optional games for the selected crew member.</p>
+          </div>
+          <a class="button" id="ci-games-open" href="/lunar-arcade-hub/" target="_blank" rel="noopener">Open games in a new tab</a>
+        </div>
+        <p class="sub">Opening the hub saves completed game results for this crew member. Raw game performance is not a validated health measurement.</p>
+        <details class="disclosure"><summary>Show more · how game results are used</summary><p>Scores, accuracy and timings do not change health alerts or replace the 90-second test.</p></details>
+        <p class="fine">Runs without internet while the local AURA-Bio server is reachable. If a result is not sent, the game tab offers a retry.</p>
+        <div class="card-head game-history-head">
+          <h3>Recent saved sessions</h3>
+          <button type="button" id="ci-games-refresh">Refresh sessions</button>
+        </div>
+        <p class="result" id="ci-game-status" role="status">No sessions loaded yet.</p>
+        <div class="card table-wrap" id="ci-game-table" hidden>
+          <table class="signals">
+            <thead><tr><th scope="col">Game / difficulty</th><th scope="col">Mission timestamp</th><th scope="col">Score</th><th scope="col">Accuracy</th><th scope="col">Mean response</th><th scope="col">Hits / mistakes</th></tr></thead>
+            <tbody id="ci-game-rows"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <section class="view" id="v-showcase" aria-labelledby="showcase-title" hidden>
+      <div class="view-head">
+        <h2 id="showcase-title">Showcase scenarios</h2>
+        <p class="sub">Follow a simulated crew member from baseline to a system event. Each replay uses its own demo crew; your existing crew readings and saved games stay intact.</p>
+      </div>
+      <div class="showcase-toolbar">
+        <label for="showcase-speed">Replay pace</label><select id="showcase-speed"><option value="0.1">Fast walkthrough · 0.1 s/day</option><option value="1" selected>Presentation · 1 s/day</option><option value="3">Inspect each day · 3 s/day</option></select>
+        <button type="button" id="showcase-refresh">Refresh progress</button>
+      </div>
+      <p class="result" id="showcase-result" role="status"></p>
+      <ul class="card showcase-list" id="showcase-list" aria-label="Available scenario walkthroughs"></ul>
+      <p class="fine">All crew values are simulated. These are demonstrations of software behavior, not clinical validation. The current mission preset is retained; use Mission to inspect ground-delay wording and reports.</p>
+    </section>
+
+    <!-- Crew overview (FR-17) -->
+    <section class="view" id="v-crew" aria-labelledby="crew-title" hidden>
+      <div class="view-head">
+        <h2 id="crew-title">Crew overview</h2>
+        <p class="sub">Who needs attention. Open a crew member to see their timeline.</p>
+      </div>
+      <ul class="crew" id="crew"></ul>
+    </section>
+
+    <!-- Ground reports (FR-16) -->
+    <section class="view" id="v-reports" aria-labelledby="rep-title" hidden>
+      <div class="view-head">
+        <h2 id="rep-title">Ground reports</h2>
+        <p class="sub" id="rep-sub">Each new alert sends a report to the flight surgeon. It arrives after the mission's one-way delay.</p>
+      </div>
+      <ul class="reports" id="reports"></ul>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <b>Not a medical device · all crew data is simulated</b>
+    <details class="disclosure"><summary>Show more · baseline and limits</summary><p>Research concept. Bands compare you with your own 14-day baseline; limits are tagged published or proposed.</p></details>
+    <span class="live" id="live">Connecting…</span>
+  </footer>
+
+  <!-- Alerts (FR-6) -->
+  <dialog id="d-alerts" aria-labelledby="da-title">
+    <div class="dlg-head"><h2 id="da-title">Alerts</h2><button type="button" class="close" data-close>Close</button></div>
+    <div id="da-list"></div>
+  </dialog>
+
+  <!-- Signal trend (FR-11) -->
+  <dialog id="d-signal" aria-labelledby="ds-title" class="wide">
+    <div class="dlg-head"><h2 id="ds-title">Signal</h2><button type="button" class="close" data-close>Close</button></div>
+    <p class="sub" id="ds-sub"></p>
+    <div class="chart"><canvas id="ds-chart" role="img" aria-label="Trend chart"></canvas></div>
+    <details class="disclosure"><summary>Show more · limits and sources</summary><p class="cite" id="ds-cite"></p></details>
+  </dialog>
+
+  <!-- Mission panel (FR-13; scenario replay is demo-only, FR-9) -->
+  <dialog id="d-mission" aria-labelledby="dm-title">
+    <div class="dlg-head"><h2 id="dm-title">Mission</h2><button type="button" class="close" data-close>Close</button></div>
+    <fieldset class="presets"><legend>Mission preset</legend><div id="dm-presets"></div></fieldset>
+    <section class="demo" aria-labelledby="demo-title">
+      <h3 id="demo-title">Demo: replay a scenario</h3>
+      <p class="sub"><a href="#showcase" id="dm-showcases">Open safe showcase walkthroughs</a> to preserve this crew. The manual replay below replaces readings.</p>
+      <p class="sub">Replaying wipes <span class="crew-id">this crew member</span>'s readings and alerts, then plays the scenario from day 1.</p>
+      <div class="demo-row">
+        <label>Scenario <select id="dm-scenario">
+          <option value="co2_creep">CO₂ creep</option><option value="sleep_debt">Sleep debt</option>
+          <option value="deconditioning">Deconditioning</option><option value="immune">Immune (90 days)</option>
+          <option value="solar_event">Solar event</option><option value="sensor_loss">Sensor loss</option>
+          <option value="normal">Normal days</option></select></label>
+        <label>Speed <select id="dm-speed">
+          <option value="10">10 s per day (plan)</option><option value="3" selected>3 s per day</option>
+          <option value="1">1 s per day</option></select></label>
+      </div>
+      <button type="button" id="dm-replay">Replay scenario</button>
+      <p class="result" id="dm-result" role="status"></p>
+    </section>
+  </dialog>
+</body>
+</html>

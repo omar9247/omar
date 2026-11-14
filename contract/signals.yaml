@@ -1,0 +1,76 @@
+# Shared contract: the signals the model/generator use (plan section 4.1/4.2). Changed only by team agreement.
+# Names include the unit. sim_* fields drive the generator only:
+#   sim_mean = typical level; sim_sd = day-to-day (or sample-to-sample) spread; person_sd = spread of personal
+#   levels between astronauts; ar = day-to-day persistence (lag-1; 0.4 when absent); log: true = multiplicative
+#   variation (never <= 0); log_from: M = the shortfall below M varies multiplicatively (approaches M, never sits
+#   on it); logit: [lo, hi] = varies on the logit scale between both ends (never sits on either);
+#   corr: {other: r} = day-to-day shocks linked to an EARLIER signal in this list (correlation r of the shocks;
+#     the values' correlation comes out a bit lower after shapes and limits, see data/validate.py links());
+#   follows: {other: {edges: [...], change: [...]}} = today's value moves by the change for the bin (split at edges)
+#     that other's value today falls in, minus the change at this astronaut's usual value; other must come EARLIER;
+#   p = chance per sample for yes/no signals; interval_days = sampled every N days;
+#   harmful: high|low|both = direction that counts as worse for the EWMA drift score (model/ewma.py), from the amber/red
+#     rows of the research doc ("Nasa pre hackathon" 4.1-4.6, 5); every model input needs one. BP is both (severe
+#     hypertension; low BP with dizziness on standing).
+#   sim_sd is also the population day-to-day spread that each astronaut's baseline spread is blended with
+#     (model/dataset.py baseline_stats, plan 4.3): changing it changes live scaling, not only the generator.
+#   min/max = hard limits of the scale (values clipped). `model: true` signals form the autoencoder input, IN THIS ORDER.
+# Every value is SOURCED, ESTIMATED (derived, rough) or an ASSUMPTION (no published data). Full list: data/SOURCES.md.
+#
+# SOURCED
+#   resting_hr_bpm: all values, PhysioNet BIDSleep (nocturnal lowest 30-min mean during sleep).
+#   sleep_efficiency_pct corr with sleep_duration_h: real same-night within-person correlation 0.59 (BIDSleep, 253 nights,
+#     47 people); set to 0.74 by simulation, because the shortfall-below-100% shape weakens the link (gives 0.596). Resting HR is left unlinked: its link to sleep is not reliable in the data (r -0.09 same night).
+#   sleep_duration_h, sleep_efficiency_pct: levels 6.5 h / 91.8% from ISS astronauts in flight (Jones et al. 2022);
+#     spreads and ar from BIDSleep.
+#   rmssd_ms: day-to-day 17 ms = lnRMSSD CV ~8% (Bellenger et al. 2022); person_sd 15 from the 19-75 ms normal range
+#     (Nunan et al. 2010).
+#   bp_systolic_mmhg: level 117 (Ohasama home BP); day-to-day 9.
+#   reaction_lapses_pct: level 7.5% of trials, rested 3-min PVT-B (>=355 ms) (Basner et al. 2011).
+#   cabin_co2_mmhg: all values from NASA EDA ISS CO2 (person_sd = between missions); min 0.76 = 1000 ppm, the same
+#     cut as the EDA cleaning.
+#   dose_mgy: all values from NASA RadLab DosTel (person_sd = between the 2 detector locations); per-preset level in
+#     presets.yaml.
+#   lymphocytes_per_ul: level Inspiration4 pre-flight; 10.1% per sample, 23.9% between people (Coskun et al. 2020).
+#     Known mismatch: Inspiration4 shows ~50% within a person (samples months apart) and 34% between (4 crew).
+#   il6_pg_ml: level and person_sd Inspiration4; 30% per sample (middle of published 25-50%).
+#   nk_activity_pct: 14% per sample (inter-test CV of natural killing, 123 healthy adults, TINKL study).
+#   viral_pcr_positive: 3% of samples in healthy controls (Mehta et al. 2017).
+#   mood_score: level 6.2 = 10 - stress/10, in-flight stress ~38/100 (Jones et al. 2022).
+#     follows sleep_duration_h: Jones 2022 Table 1, stress by last night's sleep vs 7-8 h (ISS astronauts in flight),
+#     /10 for mood, used as published bins: <=4 h -0.77, 4-5 -0.38, 5-6 -0.26, 6-7 -0.05, 8-9 +0.11, >9 +0.05.
+#     Relative to the astronaut's usual sleep, so mood levels stay as validated.
+# MATCHED BY SIMULATION (data/validate.py match_spreads): sim_sd and person_sd of resting_hr_bpm, sleep_duration_h,
+#   sleep_efficiency_pct, cabin_co2_mmhg, and person_sd of il6_pg_ml are tuned so that short simulated runs (as long as
+#   the real ones: ~5 nights per BIDSleep person, ~42 days per ISS mission, 3 Inspiration4 samples) reproduce the real
+#   within- and between-unit spreads. Copying the raw spreads double-counted day-to-day noise in person_sd.
+# ESTIMATED (rough)
+#   rmssd_ms level 55: nightly estimate (daytime ECG average ~42).
+#   bp_systolic_mmhg person_sd 10: narrowed from Ohasama's 13.4 (ages 7-98, children included; gave systolic < 90
+#     on 4.5% of days) toward a screened adult crew.
+#   reaction_lapses_pct person_sd 6.5: Basner 2011 Fig 4 error bars (N=43); sim_sd 5.4: from repeat-test agreement
+#     ICC 0.59 for PVT lapses with that person_sd.
+#   reaction_lapses_pct is log: true, so the large spreads never push a personal level to 0 or below.
+#   sleep_efficiency_pct and exercise_completion_pct use log_from: 100: values near the cap used to pile up at
+#     exactly 100% (13% and 33% of days; real BIDSleep nights never reach 99%).
+#   mood_score person_sd 1.7: Jones 2022 Fig 1H error bars (n~21). Simulated with logit: [0, 10]: a plain normal put
+#     ~1.7% of astronauts above 10, stuck at the top with flat baselines.
+# ASSUMPTIONS (no published data found)
+#   mood_score sim_sd 0.6; exercise_completion_pct level 98% and spreads 4 / 2 (ISS crews log ~600 min/week but no
+#   completion % is published); ar 0.4 for rmssd_ms, bp_systolic_mmhg, reaction_lapses_pct, mood_score,
+#   exercise_completion_pct.
+signals:
+  - {name: resting_hr_bpm,         system: cardiovascular, group: vitals,    source: wokwi,     sim_mean: 60.1, sim_sd: 3.84, person_sd: 4.63, ar: 0.25,  harmful: high, model: true}
+  - {name: rmssd_ms,               system: cardiovascular, group: vitals,    source: wokwi,     sim_mean: 55,   sim_sd: 17,   person_sd: 15,  log: true,  harmful: low, model: true}
+  - {name: bp_systolic_mmhg,       system: cardiovascular, group: vitals,    source: generator, sim_mean: 117,  sim_sd: 9,    person_sd: 10,   harmful: both, model: true}
+  - {name: sleep_duration_h,       system: neurocognitive, group: vitals,    source: generator, sim_mean: 6.5,  sim_sd: 0.98, person_sd: 0.64, ar: -0.20, min: 0, max: 24,  harmful: low, model: true}
+  - {name: sleep_efficiency_pct,   system: neurocognitive, group: vitals,    source: generator, sim_mean: 91.8, sim_sd: 4.89, person_sd: 4.39, ar: -0.27, corr: {sleep_duration_h: 0.74}, log_from: 100, min: 0, max: 100,  harmful: low, model: true}
+  - {name: reaction_lapses_pct,    system: neurocognitive, group: vitals,    source: app,       sim_mean: 7.5,  sim_sd: 5.4,  person_sd: 6.5,  log: true, min: 0, max: 100, harmful: high, model: true}
+  - {name: mood_score,             system: neurocognitive, group: vitals,    source: app,       sim_mean: 6.2,  sim_sd: 0.6,  person_sd: 1.7,  logit: [0, 10], follows: {sleep_duration_h: {edges: [4, 5, 6, 7, 8, 9], change: [-0.77, -0.38, -0.26, -0.05, 0, 0.11, 0.05]}}, min: 0, max: 10, harmful: low, model: true}
+  - {name: cabin_co2_mmhg,         system: environment,    group: cabin,     source: wokwi,     sim_mean: 2.21, sim_sd: 0.56, person_sd: 0.39, ar: 0.87, min: 0.76,  harmful: high, model: true}
+  - {name: exercise_completion_pct, system: bone_muscle,   group: vitals,    source: app,       sim_mean: 98,   sim_sd: 4.0,  person_sd: 2,    log_from: 100, min: 0, max: 100, harmful: low, model: true}
+  - {name: dose_mgy,               system: radiation,      group: radiation, source: generator, sim_mean: 0.285, sim_sd: 0.0158, person_sd: 0.0255, ar: -0.05, log: true, harmful: high, model: true}
+  - {name: lymphocytes_per_ul,     system: immune,         group: labs,      source: wokwi,     sim_mean: 2679, sim_sd: 271,  person_sd: 640,  log: true, interval_days: 7, model: false}
+  - {name: il6_pg_ml,              system: immune,         group: labs,      source: wokwi,     sim_mean: 3.7,  sim_sd: 1.11, person_sd: 0.41, log: true, interval_days: 7, model: false}
+  - {name: nk_activity_pct,        system: immune,         group: labs,      source: wokwi,     sim_mean: 100,  sim_sd: 14,   person_sd: 0,    log: true, interval_days: 7, model: false}
+  - {name: viral_pcr_positive,     system: immune,         group: labs,      source: wokwi,     sim_mean: 0,    sim_sd: 0,    person_sd: 0,    p: 0.03,   interval_days: 7, model: false}

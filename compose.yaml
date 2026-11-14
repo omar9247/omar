@@ -1,0 +1,31 @@
+# deploy/model/build.sh on a fresh clone, then: docker compose up --build   (plan 3.7)
+services:
+  broker:
+    image: eclipse-mosquitto:2
+    ports: ["1883:1883"]
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - broker-data:/mosquitto/data
+    restart: unless-stopped
+  core:
+    build: .
+    command: uvicorn core.app:app --host 0.0.0.0 --port 8000
+    environment: {AURA_MQTT_HOST: broker, AURA_DB: /data/core.db, AURA_MODEL_URL: "http://model:8001"}
+    ports: ["8000:8000"]
+    volumes: [core-data:/data]
+    depends_on: [broker]
+    restart: unless-stopped
+  model:
+    build:
+      context: .
+      dockerfile: deploy/model/Dockerfile
+    image: aura-bio/model:local
+    read_only: true
+    tmpfs: [/tmp:size=64m]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    ports: ["8001:8001"]
+    restart: unless-stopped
+volumes:
+  broker-data:
+  core-data:

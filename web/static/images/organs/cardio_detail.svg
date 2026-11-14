@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <filter id="glow-cardio" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <radialGradient id="myoGrad" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#EF4444" stop-opacity="0.45"/>
+      <stop offset="70%" stop-color="#DC2626" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#991B1B" stop-opacity="0.05"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="400" height="400" fill="none"/>
+
+  <!-- Radial Telemetry Targeting Reticle -->
+  <circle cx="200" cy="210" r="150" stroke="#EF4444" stroke-width="1" stroke-dasharray="6 8" opacity="0.3"/>
+  <circle cx="200" cy="210" r="110" stroke="#EF4444" stroke-width="0.75" opacity="0.2"/>
+  <line x1="200" y1="40" x2="200" y2="70" stroke="#EF4444" stroke-width="1.5" opacity="0.5"/>
+  <line x1="200" y1="350" x2="200" y2="380" stroke="#EF4444" stroke-width="1.5" opacity="0.5"/>
+  <line x1="30" y1="210" x2="60" y2="210" stroke="#EF4444" stroke-width="1.5" opacity="0.5"/>
+  <line x1="340" y1="210" x2="370" y2="210" stroke="#EF4444" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Superior Vena Cava & Aortic Arch -->
+  <path d="M 175 140 L 175 90 L 195 90 L 195 135" fill="none" stroke="#38BDF8" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+  <path d="M 195 130 C 195 70, 245 70, 245 130 L 245 170" fill="none" stroke="#EF4444" stroke-width="12" stroke-linecap="round" filter="url(#glow-cardio)"/>
+  <!-- Branching Brachiocephalic Arteries -->
+  <line x1="210" y1="78" x2="210" y2="50" stroke="#EF4444" stroke-width="5" stroke-linecap="round"/>
+  <line x1="225" y1="80" x2="230" y2="52" stroke="#EF4444" stroke-width="5" stroke-linecap="round"/>
+  <line x1="240" y1="88" x2="252" y2="58" stroke="#EF4444" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Myocardial Silhouette & Ventricular Core -->
+  <path d="M 200 160 C 150 120, 110 170, 140 230 C 160 270, 195 315, 215 330 C 235 315, 280 260, 280 200 C 280 150, 240 120, 200 160 Z"
+        fill="url(#myoGrad)" stroke="#EF4444" stroke-width="2.5" filter="url(#glow-cardio)"/>
+
+  <!-- Ventricular Septum & Coronary Artery Sulcus -->
+  <path d="M 205 165 C 195 210, 215 260, 215 330" fill="none" stroke="#FCA5A5" stroke-width="2" stroke-dasharray="3 3"/>
+  <path d="M 180 190 Q 200 215 220 205" fill="none" stroke="#EF4444" stroke-width="1.5"/>
+  <path d="M 160 225 Q 185 240 210 235" fill="none" stroke="#EF4444" stroke-width="1.5"/>
+
+  <!-- SA Node & Purkinje Electrical Conduction Pacemaker -->
+  <circle cx="165" cy="150" r="5" fill="#FDE047" filter="url(#glow-cardio)"/>
+  <circle cx="200" cy="205" r="4.5" fill="#FDE047"/>
+  <path d="M 165 150 Q 180 180 200 205" fill="none" stroke="#FDE047" stroke-width="1.5" stroke-dasharray="2 3"/>
+  <path d="M 200 205 L 185 260 L 175 285" fill="none" stroke="#FDE047" stroke-width="1.2" stroke-dasharray="2 3"/>
+  <path d="M 200 205 L 220 260 L 230 285" fill="none" stroke="#FDE047" stroke-width="1.2" stroke-dasharray="2 3"/>
+</svg>

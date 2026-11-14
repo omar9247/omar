@@ -1,0 +1,3 @@
+signal,real_mean_pct,sim_mean_pct,real_min_pct,real_max_pct,sim_95_lo,sim_95_hi,coverage_95,real_crew
+lymphocytes_per_ul,-26.83,-26.49,-48.13,1.875,-61.31,25.16,1,4
+il6_pg_ml,90.06,97.77,30.81,189.7,-41.61,373.5,1,4

@@ -1,0 +1,61 @@
+services:
+  - type: pserv
+    name: aura-bio-broker
+    runtime: docker
+    plan: 0.5c-512mb
+    region: frankfurt
+    branch: integration/full-stack
+    dockerfilePath: deploy/render/Broker.Dockerfile
+    autoDeployTrigger: "off"
+    disk:
+      name: broker-data
+      mountPath: /mosquitto/data
+      sizeGB: 1
+
+  - type: pserv
+    name: aura-bio-model
+    runtime: docker
+    plan: 0.5c-512mb
+    region: frankfurt
+    branch: integration/full-stack
+    dockerfilePath: deploy/model/Dockerfile
+    autoDeployTrigger: "off"
+    envVars:
+      - key: AURA_ARTIFACTS_BUILD
+        value: deploy/render/model-artifacts
+
+  - type: web
+    name: aura-bio
+    runtime: docker
+    plan: 0.5c-512mb
+    region: frankfurt
+    branch: integration/full-stack
+    dockerfilePath: Dockerfile
+    autoDeployTrigger: "off"
+    healthCheckPath: /health
+    dockerCommand: >-
+      sh -c 'export AURA_MODEL_URL="http://${AURA_MODEL_HOST}:8001";
+      python seed_demo.py && exec uvicorn core.app:app --host 0.0.0.0 --port ${PORT:-10000} --workers 1'
+    disk:
+      name: core-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: AURA_DB
+        value: /data/core.db
+      - key: AURA_PUBLIC_DEMO
+        value: "1"
+      - key: AURA_ADMIN_TOKEN
+        generateValue: true
+      - key: AURA_MQTT_HOST
+        fromService:
+          type: pserv
+          name: aura-bio-broker
+          property: host
+      - key: AURA_MQTT_PORT
+        value: "1883"
+      - key: AURA_MODEL_HOST
+        fromService:
+          type: pserv
+          name: aura-bio-model
+          property: host

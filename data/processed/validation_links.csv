@@ -1,0 +1,2 @@
+signal,linked_to,set_r,real_r,sim_r,real_values
+sleep_efficiency_pct,sleep_duration_h,0.74,0.5927,0.6164,253

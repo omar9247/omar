@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <filter id="glow-immune" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="400" height="400" fill="none"/>
+
+  <!-- Cervical Neck & Clavicular Contour Frame -->
+  <path d="M 140 60 L 140 180 L 80 230 L 60 320" fill="none" stroke="#64748B" stroke-width="1.2" stroke-dasharray="3 4"/>
+  <path d="M 260 60 L 260 180 L 320 230 L 340 320" fill="none" stroke="#64748B" stroke-width="1.2" stroke-dasharray="3 4"/>
+  <line x1="80" y1="230" x2="320" y2="230" stroke="#64748B" stroke-width="1" stroke-dasharray="2 3"/>
+
+  <!-- Trachea & Major Airway Cartilage Rings -->
+  <g stroke="#38BDF8" stroke-width="1.5" fill="none" opacity="0.7">
+    <ellipse cx="200" cy="80" rx="20" ry="6"/>
+    <ellipse cx="200" cy="100" rx="20" ry="6"/>
+    <ellipse cx="200" cy="120" rx="20" ry="6"/>
+    <ellipse cx="200" cy="140" rx="20" ry="6"/>
+    <ellipse cx="200" cy="160" rx="20" ry="6"/>
+  </g>
+
+  <!-- Thymus Gland / Immune Command Core -->
+  <path d="M 190 200 C 175 180, 165 210, 180 235 C 190 250, 195 260, 200 265 C 205 260, 210 250, 220 235 C 235 210, 225 180, 210 200 Z"
+        fill="rgba(168, 85, 247, 0.35)" stroke="#A855F7" stroke-width="2" filter="url(#glow-immune)"/>
+
+  <!-- Cervical, Submandibular & Axillary Lymph Nodes -->
+  <g fill="#A855F7" stroke="#E9D5FF" stroke-width="1.2" filter="url(#glow-immune)">
+    <!-- Submandibular / Salivary Nodes -->
+    <circle cx="160" cy="80" r="5"/>
+    <circle cx="240" cy="80" r="5"/>
+    <!-- Deep Cervical Chain -->
+    <circle cx="165" cy="115" r="4.5"/>
+    <circle cx="235" cy="115" r="4.5"/>
+    <circle cx="170" cy="150" r="5"/>
+    <circle cx="230" cy="150" r="5"/>
+    <!-- Supraclavicular Nodes -->
+    <circle cx="140" cy="210" r="5.5"/>
+    <circle cx="260" cy="210" r="5.5"/>
+    <!-- Axillary Clusters -->
+    <circle cx="100" cy="240" r="6"/>
+    <circle cx="300" cy="240" r="6"/>
+    <circle cx="90" cy="270" r="5"/>
+    <circle cx="310" cy="270" r="5"/>
+  </g>
+
+  <!-- Lymphatic Drainage Channels / Vessels -->
+  <g fill="none" stroke="#C084FC" stroke-width="1.2" stroke-dasharray="3 3">
+    <path d="M 160 80 Q 165 100 165 115 T 170 150 T 140 210 T 100 240"/>
+    <path d="M 240 80 Q 235 100 235 115 T 230 150 T 260 210 T 300 240"/>
+    <path d="M 140 210 L 190 230"/>
+    <path d="M 260 210 L 210 230"/>
+  </g>
+
+  <!-- Salivary Secretory Epithelium Indicator (sIgA synthesis site) -->
+  <g stroke="#38BDF8" stroke-width="1" opacity="0.8">
+    <circle cx="145" cy="65" r="10" stroke-dasharray="2 3" fill="none"/>
+    <circle cx="255" cy="65" r="10" stroke-dasharray="2 3" fill="none"/>
+    <line x1="145" y1="50" x2="145" y2="55"/>
+    <line x1="255" y1="50" x2="255" y2="55"/>
+  </g>
+</svg>

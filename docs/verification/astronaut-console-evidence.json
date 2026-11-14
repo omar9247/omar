@@ -1,0 +1,90 @@
+{
+  "checked_at_utc": "2026-11-14T05:30:25Z",
+  "repository": "SeifElgendy-eg/Aura-bio",
+  "branch": "integration/full-stack",
+  "viewport_css_px": [
+    1280,
+    1100
+  ],
+  "saved_viewport_screenshot_px": [
+    893,
+    768
+  ],
+  "body_font_px": 17,
+  "primary_button_font_px": 16,
+  "system_controls": [
+    "neuro",
+    "cardio",
+    "immune",
+    "bone",
+    "habitat",
+    "metab"
+  ],
+  "all_named_controls_open_matching_detail": true,
+  "actual_keyboard_checks": {
+    "Enter": "neuro",
+    "Space": "cardio",
+    "Escape": "closes alert dialog without acknowledgment"
+  },
+  "theme_persisted_across_navigation": true,
+  "chart_theme_check": {
+    "signal": "sleep_efficiency_pct",
+    "dark_line": "#e6e1d5",
+    "light_line": "#182321",
+    "dark_baseline_fill": "rgba(230,225,213,.08)",
+    "light_baseline_fill": "rgba(24,35,33,.08)"
+  },
+  "browser_only_fixture": {
+    "api_writes": 0,
+    "restored_original_status": true,
+    "bands_checked": [
+      "red",
+      "amber",
+      "green",
+      "stale",
+      "unknown"
+    ],
+    "partly_unknown_habitat_not_green": true,
+    "active_red_amber_alarm_backgrounds": true,
+    "open_dialog_updated_to_resolved": true,
+    "open_disclosure_preserved": true,
+    "close_visible": true
+  },
+  "horizontal_page_overflow": {
+    "health": false,
+    "checkin": false
+  },
+  "data_preserved": {
+    "health_readings": 424,
+    "rejects": 0,
+    "mqtt_connected": true,
+    "saved_game_sessions": 7
+  },
+  "pvt": {
+    "duration_seconds": 90,
+    "lapse_threshold_ms": 355
+  },
+  "game_launch": {
+    "crew": "cm2",
+    "mission_timestamp": "2026-12-23T10:00:00+00:00",
+    "local_server_requirement_visible": true
+  },
+  "red_badge_text_contrast": {
+    "dark": 5.46,
+    "light": 5.92
+  },
+  "regression": {
+    "passed": 151,
+    "skipped": 1,
+    "warnings": 1,
+    "duration_seconds": 99.82
+  },
+  "limits": [
+    "browser fixture is not telemetry",
+    "no mobile-device or full assistive-technology testing",
+    "no astronaut, clinical or flight validation",
+    "model and hardware not rebuilt or retrained"
+  ],
+  "final_focused_console_checks_passed": 2,
+  "first_viewport_safety_framing_visible": true
+}

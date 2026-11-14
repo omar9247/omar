@@ -1,0 +1,26 @@
+{
+  "name": "CO2",
+  "author": "AURA-Bio",
+  "pins": [
+    "",
+    "",
+    "",
+    "GND",
+    "CO2",
+    "VCC"
+  ],
+  "display": {
+    "width": 64,
+    "height": 32
+  },
+  "controls": [
+    {
+      "id": "co2",
+      "label": "Cabin CO2 (mmHg)",
+      "type": "range",
+      "min": 0,
+      "max": 10,
+      "step": 0.01
+    }
+  ]
+}

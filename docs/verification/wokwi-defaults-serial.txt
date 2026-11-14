@@ -1,0 +1,171 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+# day 0
+{"crew_id":"cm2","ts":"2026-11-14T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-14T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-14T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-14T10:00:00Z","signal":"lymphocytes_per_ul","value":2680,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-14T10:00:00Z","signal":"il6_pg_ml","value":3.7,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-14T10:00:00Z","signal":"nk_activity_pct","value":100.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-14T10:00:00Z","signal":"viral_pcr_positive","value":0,"source":"wokwi","provenance":"simulated"}
+# day 1
+{"crew_id":"cm2","ts":"2026-11-15T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-15T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-15T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 2
+{"crew_id":"cm2","ts":"2026-11-16T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-16T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-16T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 3
+{"crew_id":"cm2","ts":"2026-11-17T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-17T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-17T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 4
+{"crew_id":"cm2","ts":"2026-11-18T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-18T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-18T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 5
+{"crew_id":"cm2","ts":"2026-11-19T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-19T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-19T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 6
+{"crew_id":"cm2","ts":"2026-11-20T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-20T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-20T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 7
+{"crew_id":"cm2","ts":"2026-11-21T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-21T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-21T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-21T10:00:00Z","signal":"lymphocytes_per_ul","value":2680,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-21T10:00:00Z","signal":"il6_pg_ml","value":3.7,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-21T10:00:00Z","signal":"nk_activity_pct","value":100.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-21T10:00:00Z","signal":"viral_pcr_positive","value":0,"source":"wokwi","provenance":"simulated"}
+# day 8
+{"crew_id":"cm2","ts":"2026-11-22T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-22T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-22T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 9
+{"crew_id":"cm2","ts":"2026-11-23T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-23T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-23T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 10
+{"crew_id":"cm2","ts":"2026-11-24T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-24T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-24T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 11
+{"crew_id":"cm2","ts":"2026-11-25T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-25T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-25T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 12
+{"crew_id":"cm2","ts":"2026-11-26T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-26T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-26T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 13
+{"crew_id":"cm2","ts":"2026-11-27T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-27T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-27T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 14
+{"crew_id":"cm2","ts":"2026-11-28T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-28T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-28T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-28T10:00:00Z","signal":"lymphocytes_per_ul","value":2680,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-28T10:00:00Z","signal":"il6_pg_ml","value":3.7,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-28T10:00:00Z","signal":"nk_activity_pct","value":100.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-28T10:00:00Z","signal":"viral_pcr_positive","value":0,"source":"wokwi","provenance":"simulated"}
+# day 15
+{"crew_id":"cm2","ts":"2026-11-29T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-29T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-29T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 16
+{"crew_id":"cm2","ts":"2026-11-30T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-30T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-11-30T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 17
+{"crew_id":"cm2","ts":"2026-12-01T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-01T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-01T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 18
+{"crew_id":"cm2","ts":"2026-12-02T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-02T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-02T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 19
+{"crew_id":"cm2","ts":"2026-12-03T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-03T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-03T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 20
+{"crew_id":"cm2","ts":"2026-12-04T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-04T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-04T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 21
+{"crew_id":"cm2","ts":"2026-12-05T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-05T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-05T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-05T10:00:00Z","signal":"lymphocytes_per_ul","value":2680,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-05T10:00:00Z","signal":"il6_pg_ml","value":3.7,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-05T10:00:00Z","signal":"nk_activity_pct","value":100.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-05T10:00:00Z","signal":"viral_pcr_positive","value":0,"source":"wokwi","provenance":"simulated"}
+# day 22
+{"crew_id":"cm2","ts":"2026-12-06T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-06T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-06T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 23
+{"crew_id":"cm2","ts":"2026-12-07T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-07T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-07T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 24
+{"crew_id":"cm2","ts":"2026-12-08T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-08T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-08T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 25
+{"crew_id":"cm2","ts":"2026-12-09T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-09T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-09T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 26
+{"crew_id":"cm2","ts":"2026-12-10T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-10T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-10T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 27
+{"crew_id":"cm2","ts":"2026-12-11T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-11T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-11T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 28
+{"crew_id":"cm2","ts":"2026-12-12T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-12T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-12T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-12T10:00:00Z","signal":"lymphocytes_per_ul","value":2680,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-12T10:00:00Z","signal":"il6_pg_ml","value":3.7,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-12T10:00:00Z","signal":"nk_activity_pct","value":100.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-12T10:00:00Z","signal":"viral_pcr_positive","value":0,"source":"wokwi","provenance":"simulated"}
+# day 29
+{"crew_id":"cm2","ts":"2026-12-13T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-13T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-13T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 30
+{"crew_id":"cm2","ts":"2026-12-14T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-14T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-14T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 31
+{"crew_id":"cm2","ts":"2026-12-15T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-15T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-15T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 32
+{"crew_id":"cm2","ts":"2026-12-16T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-16T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-16T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 33
+{"crew_id":"cm2","ts":"2026-12-17T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-17T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-17T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}
+# day 34
+{"crew_id":"cm2","ts":"2026-12-18T10:00:00Z","signal":"resting_hr_bpm","value":60.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-18T10:00:00Z","signal":"rmssd_ms","value":55.0,"source":"wokwi","provenance":"simulated"}
+{"crew_id":"cm2","ts":"2026-12-18T10:00:00Z","signal":"cabin_co2_mmhg","value":2.20,"source":"wokwi","provenance":"simulated"}

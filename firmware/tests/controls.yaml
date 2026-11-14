@@ -1,0 +1,19 @@
+name: AURA-Bio pulse omission and CO2 control
+version: 1
+author: AURA-Bio
+steps:
+  - delay: 28500ms
+  - set-control:
+      part-id: pulse
+      name: on
+      value: 0
+  - set-control:
+      part-id: co2
+      name: co2
+      value: 6.5
+  - delay: 4s
+  - set-control:
+      part-id: pulse
+      name: on
+      value: 1
+  - delay: 3s

@@ -1,0 +1,29 @@
+# Mission presets (plan 4.4). Shared contract: changed only by team agreement.
+# dose_mgy_day: mean daily ABSORBED dose (what the simulator publishes as `dose_mgy`).
+# quality_factor: dose equivalent / absorbed dose, used by the core service to convert to mSv for
+# limit checks.
+limits:
+  career_effective_dose_msv: 600      # NASA-STD-3001: career limit, any age or sex
+  solar_event_effective_dose_msv: 250 # NASA-STD-3001: per solar particle event
+presets:
+  station:
+    alert_wording: Contact the ground   # plan 4.4
+    one_way_delay_s: 0
+    dose_mgy_day: 0.285        # RadLab DosTel1+2 mean, ISS, Jan-Mar 2022 (data/processed/radlab_dose_calibration.csv)
+    quality_factor: 1.85       # DERIVED: lunar 1369 uSv/day is 2.6x ISS (Zhang et al. 2020) -> ~527 uSv/day,
+                               # / 0.285 mGy/day measured above; different detectors and years
+  moon:
+    alert_wording: Contact the ground   # plan 4.4
+    one_way_delay_s: 1.3
+    dose_mgy_day: 0.317        # Chang'e 4 LND: 13.2 uGy/h absorbed (in silicon), Zhang et al. 2020
+    quality_factor: 4.3        # 1369 uSv/day dose equivalent / 0.317 mGy/day, same paper
+  mars_transit:
+    alert_wording: Follow onboard protocol; report queued   # plan 4.4
+    one_way_delay_s: 750       # roughly 3-22 min; midpoint, needs a citation
+    dose_mgy_day: 0.48         # MSL cruise, 0.48 +/- 0.08 mGy/day (Hassler et al. 2014)
+    quality_factor: 3.83       # 1.84 mSv/day (Zeitlin et al. 2013) / 0.48 mGy/day
+  mars_surface:
+    alert_wording: Follow onboard protocol; report queued   # plan 4.4
+    one_way_delay_s: 750
+    dose_mgy_day: 0.21         # Gale Crater, 0.210 mGy/day (Hassler et al. 2014)
+    quality_factor: 3.2        # 0.67 mSv/day (Hassler et al. 2014, NASA) / 0.21 mGy/day

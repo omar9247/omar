@@ -1,0 +1,2 @@
+signal,sim_mean,sim_sd,person_sd,n_units,n_days,ar,n_pairs
+cabin_co2_mmhg,2.207,0.4561,0.4978,10,423,0.8704,410

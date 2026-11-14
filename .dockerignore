@@ -1,0 +1,14 @@
+# Build context for deploy/model/Dockerfile (and the backend's shared image).
+# Include-list: everything else (data/, docs/, tests/, .git, .venv) never enters the daemon.
+# Keep the backend's entries (core, web) here too, so one file serves both images after a merge.
+*
+!pyproject.toml
+!uv.lock
+!contract
+!generator
+!model
+!artifacts
+!core
+!web
+!deploy
+!mosquitto.conf

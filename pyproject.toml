@@ -1,0 +1,32 @@
+[project]
+name = "aura-bio"
+version = "0.1.0"
+description = "AURA-Bio: astronaut health monitoring (NASA Space Apps 2026) - data and model side"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "numpy",
+  "pandas",
+  "pyyaml",
+  "pydantic>=2",
+  "fastapi",
+  "uvicorn",
+  "paho-mqtt>=2",
+  "torch",
+  "scipy>=1.17.1",
+  "websockets>=17.4",
+]
+
+[dependency-groups]
+dev = ["pytest", "httpx"]
+hardware = ["pyserial>=3.5"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

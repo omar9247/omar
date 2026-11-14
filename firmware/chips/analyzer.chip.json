@@ -1,0 +1,56 @@
+{
+  "name": "Analyzer",
+  "author": "AURA-Bio",
+  "pins": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "GND",
+    "VIR",
+    "LYM",
+    "NK",
+    "IL6",
+    "VCC"
+  ],
+  "display": {
+    "width": 64,
+    "height": 32
+  },
+  "controls": [
+    {
+      "id": "lym",
+      "label": "Lymphocytes (/uL)",
+      "type": "range",
+      "min": 0,
+      "max": 6000,
+      "step": 1
+    },
+    {
+      "id": "il6",
+      "label": "IL-6 (pg/mL)",
+      "type": "range",
+      "min": 0,
+      "max": 25,
+      "step": 0.1
+    },
+    {
+      "id": "nk",
+      "label": "NK Activity (%)",
+      "type": "range",
+      "min": 0,
+      "max": 150,
+      "step": 0.5
+    },
+    {
+      "id": "vir",
+      "label": "Viral PCR Positive (0/1)",
+      "type": "range",
+      "min": 0,
+      "max": 1,
+      "step": 1
+    }
+  ]
+}

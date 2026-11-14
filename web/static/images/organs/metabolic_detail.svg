@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <filter id="glow-meta" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="400" height="400" fill="none"/>
+
+  <!-- Abdominal Grid Calibration -->
+  <line x1="80" y1="200" x2="320" y2="200" stroke="#F59E0B" stroke-width="0.75" stroke-dasharray="4 6" opacity="0.3"/>
+  <line x1="200" y1="60" x2="200" y2="340" stroke="#F59E0B" stroke-width="0.75" stroke-dasharray="4 6" opacity="0.3"/>
+
+  <!-- Liver (Hepatic Engine - Right Upper Quadrant) -->
+  <path d="M 120 150 C 140 110, 240 120, 230 160 C 220 200, 160 215, 125 195 C 110 185, 110 165, 120 150 Z"
+        fill="rgba(245, 158, 11, 0.25)" stroke="#F59E0B" stroke-width="2" filter="url(#glow-meta)"/>
+
+  <!-- Stomach (Gastric Fluid Reservoir) -->
+  <path d="M 220 165 C 265 160, 295 190, 280 235 C 265 275, 215 270, 205 240 C 200 220, 205 185, 220 165 Z"
+        fill="rgba(56, 189, 248, 0.2)" stroke="#38BDF8" stroke-width="2"/>
+
+  <!-- Pancreatic Islets & Duodenum Loop -->
+  <path d="M 180 220 C 220 220, 240 235, 250 245" fill="none" stroke="#FBBF24" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+  <circle cx="215" cy="227" r="4" fill="#FBBF24"/>
+  <circle cx="235" cy="235" r="3.5" fill="#FBBF24"/>
+
+  <!-- Intestinal Mesenteric Convolutions (Hydration/Absorption) -->
+  <g fill="none" stroke="#38BDF8" stroke-width="1.8" opacity="0.6">
+    <path d="M 150 240 Q 180 260 210 245 T 250 265"/>
+    <path d="M 140 270 Q 185 290 220 275 T 260 295"/>
+    <path d="M 155 300 Q 195 315 235 305"/>
+  </g>
+
+  <!-- Fluid Osmolarity Flux Indicators -->
+  <g fill="#38BDF8">
+    <circle cx="160" cy="255" r="3"/>
+    <circle cx="190" cy="280" r="3"/>
+    <circle cx="230" cy="265" r="3"/>
+    <circle cx="210" cy="310" r="3"/>
+  </g>
+</svg>

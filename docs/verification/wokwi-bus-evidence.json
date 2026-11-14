@@ -1,0 +1,54 @@
+{
+  "capture_origin": "Actual Wokwi CLI simulation, not generated fixture",
+  "capture_sha256": "ae2f93757faef73cef510bf20041723096141a6a758e7bddeeae439f2b53504b",
+  "reading_count": 125,
+  "stored_rows_exactly_match_capture": true,
+  "rejects": 0,
+  "duplicate_replay_new_rows": 0,
+  "health": {
+    "status": "ok",
+    "mqtt_connected": true,
+    "readings": 125,
+    "rejects": 0
+  },
+  "anomaly": {
+    "crew_id": "cm2",
+    "score": 0.052,
+    "anomalous": false,
+    "detector": "2d",
+    "scores": {
+      "2d": 0.052,
+      "ewma": 0.0
+    },
+    "contributions": {
+      "resting_hr_bpm": 0.273,
+      "rmssd_ms": 0.092,
+      "bp_systolic_mmhg": 0.029,
+      "sleep_duration_h": 0.035,
+      "sleep_efficiency_pct": 0.174,
+      "reaction_lapses_pct": 0.179,
+      "mood_score": 0.169,
+      "cabin_co2_mmhg": 0.0,
+      "exercise_completion_pct": 0.033,
+      "dose_mgy": 0.015
+    },
+    "drift": {
+      "resting_hr_bpm": 0.0,
+      "rmssd_ms": 0.0,
+      "bp_systolic_mmhg": 0.0,
+      "sleep_duration_h": 0.0,
+      "sleep_efficiency_pct": 0.0,
+      "reaction_lapses_pct": 0.0,
+      "mood_score": 0.0,
+      "cabin_co2_mmhg": 0.0,
+      "exercise_completion_pct": 0.0,
+      "dose_mgy": 0.0
+    },
+    "model_version": "8d30c5cab8db",
+    "label": "research concept, not validated on crew data",
+    "available": true
+  },
+  "isolated_database": "/home/ubuntu/reports/aura-wokwi-followup/actual-bus.db",
+  "broker_port": 1887,
+  "core_port": 8009
+}
